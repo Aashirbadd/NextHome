@@ -1,0 +1,23 @@
+{
+  "name": "nexthome",
+  "version": "1.0.0",
+  "description": "Scrapes all single-family house listings in Calgary from the top 3 real-estate sites.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aashirbadd/NextHome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aashirbadd/NextHome/issues"
+  },
+  "homepage": "https://github.com/Aashirbadd/NextHome#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
