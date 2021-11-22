@@ -1,0 +1,21 @@
+body {
+    /*height:100vh;
+    width:100vh;*/
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+
+#credentials{
+    height:50%;
+    width:50%;
+    background-color: #f5aa8e;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    align-content:space-between;
+}
