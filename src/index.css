@@ -1,14 +1,16 @@
 * {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar {
+  color: white;
   padding-left: 100px;
   padding-right: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: red;
+  background-color: #d01a1d;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -17,6 +19,47 @@
       -ms-flex-align: center;
           align-items: center;
   height: 60px;
+}
+
+select {
+  border-radius: 10px;
+  width: 10em;
+  height: 2em;
+  border: solid grey 1px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 8px;
+  background-color: rgba(0, 255, 34, 0.705);
+  color: white;
+}
+
+.search-btn:hover {
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+}
+
+.navbar a:hover {
+  border-bottom: solid white 2px;
 }
 
 .title {
@@ -41,7 +84,8 @@
   margin-top: 100px;
   margin-left: 200px;
   margin-right: 200px;
-  background-color: #f5aa8e;
+  color: white;
+  background-color: #d33a3d;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -99,12 +143,12 @@
 }
 
 .listing-container {
-  background-color: cornflowerblue;
   margin-top: 50px;
   margin-left: 200px;
   margin-right: 200px;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -114,7 +158,9 @@
 }
 
 .listing {
-  background-color: green;
+  background-color: white;
+  text-decoration: none;
+  color: black;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-pack: center;
@@ -123,6 +169,21 @@
   width: 31%;
   margin: 2px;
   border-radius: 20px;
+  border: solid grey 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.listing:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.listing:active {
+  -webkit-box-shadow: 0px 0px 5px;
+          box-shadow: 0px 0px 5px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 img {
@@ -137,5 +198,10 @@ img {
 .listing:hover {
   -webkit-box-shadow: darkblue;
           box-shadow: darkblue;
+  background-color: darkblues;
+}
+
+.listing-disc {
+  padding: 20px;
 }
 /*# sourceMappingURL=index.css.map */

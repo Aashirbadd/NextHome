@@ -1,14 +1,57 @@
 * {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .navbar {
+  color: white;
   padding-left: 100px;
   padding-right: 100px;
   display: flex;
-  background-color: red;
+  background-color: #d01a1d;
   flex-direction: row;
   align-items: center;
   height: 60px;
+}
+
+select {
+  //padding: 8px;
+  border-radius: 10px;
+  width: 10em;
+  height: 2em;
+  border: solid grey 1px;
+  //appearance: none; /* Remove default arrow */
+  //background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); /* Add custom arrow */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-btn {
+  //appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-left: 10px;
+  //height: 2em;
+  padding: 8px;
+  background-color: rgba(0, 255, 34, 0.705);
+  color: white;
+}
+
+.search-btn:hover {
+  box-shadow: 0px 0px 5px black;
+}
+
+.navbar a:hover {
+  //color: black;
+  //text-decoration: underline;
+  border-bottom: solid white 2px;
 }
 
 .title {
@@ -31,7 +74,8 @@
   margin-top: 100px;
   margin-left: 200px;
   margin-right: 200px;
-  background-color: rgb(245, 170, 142);
+  color: white;
+  background-color: #d33a3d;
   justify-content: center;
   flex-direction: column;
   align-content: center;
@@ -65,24 +109,37 @@
 }
 
 .listing-container {
-  background-color: cornflowerblue;
   margin-top: 50px;
   margin-left: 200px;
   margin-right: 200px;
   padding-top: 20px;
   padding-bottom: 20px;
-
+  border-radius: 20px;
   display: flex;
   justify-content: space-evenly;
 }
 
 .listing {
-  background-color: green;
+  background-color: white;
+  text-decoration: none;
+  color: black;
   align-content: center;
   justify-content: center;
   width: 31%;
   margin: 2px;
   border-radius: 20px;
+  border: solid grey 1px;
+  transition: 0.2s;
+}
+
+.listing:hover {
+  //box-shadow: 0px 0px 5px;
+  transform: scale(1.01);
+}
+
+.listing:active {
+  box-shadow: 0px 0px 5px;
+  transform: scale(1);
 }
 
 img {
@@ -95,4 +152,9 @@ img {
 
 .listing:hover {
   box-shadow: darkblue;
+  background-color: darkblues;
+}
+
+.listing-disc {
+  padding: 20px;
 }
