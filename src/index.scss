@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+}
+.navbar {
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  background-color: red;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+}
+
+.title {
+  margin: 0;
+}
+
+.links {
+  position: absolute;
+  right: 100px;
+}
+
+.link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.search-box {
+  display: flex;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: rgb(245, 170, 142);
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.title-search {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+.drop-menus {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-menus > * {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.drop-menu-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing-container {
+  background-color: cornflowerblue;
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.listing {
+  background-color: green;
+  align-content: center;
+  justify-content: center;
+  width: 31%;
+  margin: 2px;
+  border-radius: 20px;
+}
+
+img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.listing-img {
+  width: 100%;
+}
+
+.listing:hover {
+  box-shadow: darkblue;
+}
