@@ -211,4 +211,155 @@ img {
 .listing-disc {
   padding: 20px;
 }
-/*# sourceMappingURL=index.css.map */
+
+.image-container {
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 350px;
+}
+
+.listing-image {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 31%;
+  margin: 2px;
+  border-radius: 20px;
+  border: solid grey 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.disc-pane {
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.left-pane,
+.right-pane > *,
+.review-pane {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2px;
+  border-radius: 20px;
+  border: solid grey 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  padding: 30px;
+}
+
+.left-pane {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  width: 66%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 10px;
+}
+
+.right-pane {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 33%;
+  margin-left: 10px;
+}
+
+.realtor-pane {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.realtor-text {
+  width: 50%;
+}
+
+.right-pane > * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.review-pane {
+  margin-top: 60px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 100px;
+}
+
+.realtor-btn {
+  margin-left: 0;
+  width: 50%;
+  background-color: red;
+}
+
+.listing-btn {
+  margin-left: 0;
+  width: 50%;
+  background-color: dodgerblue;
+}
+
+.realtor-img {
+  width: 50%;
+  border-radius: 20px;
+}
+
+.left {
+  position: absolute;
+  left: 120px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+}
+
+.right {
+  position: absolute;
+  right: 120px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+}
+/*# sourceMappingURL=listing.css.map */
