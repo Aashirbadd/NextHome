@@ -45,7 +45,12 @@ select {
 }
 
 .search-btn:hover {
+  transform: scale(1.02);
   box-shadow: 0px 0px 5px black;
+}
+
+.search-btn:active {
+  transform: scale(0.98);
 }
 
 .navbar a:hover {
