@@ -40,8 +40,8 @@ app.post("/post_listing", (req,res) => {
     const bathrooms = req.body.create_bathrooms;
 
 
-    const queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite) VALUES (?,?,?,?,?,?,?,?,?,?,?);"
-    getConnection().query(queryString, [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, 'NE', 'realtor.ca','realtor.ca'], (err, results, fields)=>{
+    const queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite, UserID) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);"
+    getConnection().query(queryString, [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, 'NE', 'realtor.ca','realtor.ca', 007], (err, results, fields)=>{
         if(err){
             console.log("Failed to insert new listing: " + err)
             res.sendStatus(500)
