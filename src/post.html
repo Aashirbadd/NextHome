@@ -15,17 +15,17 @@
             <a class = "link" href="login.html">Log in</a>
         </div>
     </div>
-    <div id = "Listing-info">
+    <form id = "Listing-info" action = "/post_listing" method = "POST">
         <h2>Enter your listing details: </h2>
-        <input type="text" placeholder="MLS code">
-        <input type="text" placeholder="address">
-        <input type="text" placeholder="Basement type">
-        <input type="text" placeholder="description">
-        <input type="text" placeholder="price">
-        <input type="text" placeholder="Sqft.">
-        <input type="text" placeholder="bedrooms">
-        <input type="text" placeholder="bathrooms">
-        <button href = "#">Post</button>
-    </div>
+        <input type="text" placeholder="MLS code" name = "create_MLS_code">
+        <input type="text" placeholder="address" name = "create_address">
+        <input type="text" placeholder="Basement type" name = "create_basement">
+        <input type="text" placeholder="description" name = "create_description">
+        <input type="text" placeholder="price" name = "create_price">
+        <input type="number" placeholder="Square Footage" name = "create_square">
+        <input type="number" placeholder="bedrooms" name = "create_bedrooms">
+        <input type="number" placeholder="bathrooms" name = "create_bathrooms">
+        <button>Post</button>
+    </form>
 </body>
 </html>
