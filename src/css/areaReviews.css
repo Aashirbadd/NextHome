@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  color: white;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #d01a1d;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+select {
+  border-radius: 10px;
+  width: 10em;
+  height: 2em;
+  border: solid grey 1px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-btn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-left: 10px;
+  position: relative;
+  left: 20px;
+  bottom: 8px;
+  padding: 8px;
+  background-color: rgba(0, 255, 34, 0.705);
+  color: white;
+}
+
+.create {
+  background-color: #4141cc;
+}
+
+.search-btn:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+}
+
+.search-btn:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.navbar a:hover {
+  border-bottom: solid white 2px;
+}
+
+.title {
+  margin: 0;
+}
+
+.links {
+  position: absolute;
+  right: 100px;
+}
+
+.link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 50px;
+  color: white;
+  background-color: #d33a3d;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  width: 50%;
+}
+
+.outer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.title-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+}
+
+.drop-menus {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.drop-menus > * {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.drop-menu-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.drop-menu-element > * {
+  margin-bottom: 20px;
+}
+
+.listing-container {
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.listing {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 31%;
+  margin: 2px;
+  border-radius: 20px;
+  border: solid grey 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.listing:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.listing:active {
+  -webkit-box-shadow: 0px 0px 5px;
+          box-shadow: 0px 0px 5px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.listing-img {
+  width: 100%;
+}
+
+.listing:hover {
+  -webkit-box-shadow: darkblue;
+          box-shadow: darkblue;
+  background-color: darkblues;
+}
+
+.listing-disc {
+  padding: 20px;
+}
+
+#credentials {
+  padding: 20px;
+  color: white;
+  margin-top: 100px;
+  height: 50%;
+  width: 80%;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: #d01a1d;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+#credentials > * {
+  margin: 10px;
+  padding: 10px;
+}
+
+.link {
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  color: white;
+  text-decoration: none;
+}
+
+.link:hover {
+  border-bottom: white solid;
+}
+
+.review-pane {
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2px;
+  border-radius: 20px;
+  border: solid grey 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  padding: 30px;
+  margin-top: 60px;
+  width: 70%;
+}
+/*# sourceMappingURL=areaReviews.css.map */

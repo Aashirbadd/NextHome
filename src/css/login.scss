@@ -30,7 +30,8 @@
   justify-self: center;
 }
 
-.navbar a {
+.navbar a,
+.link {
   color: white;
   text-decoration: none;
 }
@@ -67,4 +68,12 @@ body {
 #credentials > * {
   margin: 10px;
   padding: 10px;
+}
+
+.link {
+  transition: 0.1s;
+}
+
+.link:hover {
+  border-bottom: white solid;
 }

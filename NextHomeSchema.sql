@@ -2,6 +2,17 @@ DROP DATABASE nextHome;
 CREATE DATABASE nextHome;
 USE nextHome;
 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+flush privileges;
+
+use houses;
+select * from players;
+
+Insert into players (idPlayers, firstName, lastName)
+values (69, Mikail, TheUltimateGoose);
+
+
+
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
   `MLS Code` int DEFAULT NULL,
