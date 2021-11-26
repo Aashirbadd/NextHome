@@ -18,9 +18,9 @@ CREATE TABLE `Listings` (
   `Bathrooms` int NOT NULL,
   `Address` varchar(45) NOT NULL,
   `AreaName` varchar(45) NOT NULL,
-  `UserID` int NOT NULL,
+  `Email` int NOT NULL,
   `BrokerageWebsite` varchar(45) DEFAULT NULL,
-  `RealtorWebsite` varchar(255) NOT NULL,
+  `RealtorWebsite` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -56,30 +56,29 @@ CREATE TABLE `AreaSubdivision` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `User` (
-  `userID` int NOT NULL AUTO_INCREMENT,
   `FName` varchar(45) NOT NULL,
   `LName` varchar(45) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
-  PRIMARY KEY (`userID`)
+  PRIMARY KEY (`Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Search` (
-  `UserID` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `AreaCode` varchar(10) NOT NULL,
   `SquareFootage` int NOT NULL,
   `PriceRange` varchar(45) NOT NULL,
-  PRIMARY KEY (`AreaCode`, `UserID`, `SquareFootage`, `PriceRange`)
+  PRIMARY KEY (`AreaCode`, `Email`, `SquareFootage`, `PriceRange`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Retrieves` (
-  `UserID` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `AreaCode` varchar(45) NOT NULL,
   `SqFt` int NOT NULL,
   `PriceRange` varchar(45) NOT NULL,
   `ListingID` int NOT NULL,
   PRIMARY KEY (
-    `UserID`,
+    `Email`,
     `AreaCode`,
     `SqFt`,
     `PriceRange`,
@@ -89,17 +88,17 @@ CREATE TABLE `Retrieves` (
 
 CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
-  `UserID` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `ReviewDate` datetime DEFAULT NULL,
   `Flag` tinyint DEFAULT '0',
   `AreaCode` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idReview`, `UserID`)
+  PRIMARY KEY (`idReview`, `Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `Flag` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `UserID` int NOT NULL,
-  PRIMARY KEY (`ID`, `UserID`)
+  `Email` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`, `Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE `AdminUser` (
@@ -121,10 +120,10 @@ ALTER TABLE Listings
 ADD CONSTRAINT `BrokerageWebsite` FOREIGN KEY (`BrokerageWebsite`) REFERENCES `Brokerage` (`Website`),
   ADD CONSTRAINT `AreaName` FOREIGN KEY (`AreaName`) REFERENCES `AreaSubdivision` (`Name`),
   ADD CONSTRAINT `RealtorWebsite` FOREIGN KEY (`RealtorWebsite`) REFERENCES `Realtors` (`Website`),
-  ADD CONSTRAINT `PostOwner` FOREIGN KEY (`UserID`) REFERENCES `User` (`userID`);
+  ADD CONSTRAINT `PostOwner` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`);
   
 ALTER TABLE Search
-ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
+ADD CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`),
   ADD CONSTRAINT `AreaCode` FOREIGN KEY (`AreaCode`) REFERENCES `AreaSubdivision` (`Name`);
   
 /*
@@ -143,9 +142,9 @@ ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
  (Didn't work --> find a way to make this work)*/
 ALTER TABLE Review
 ADD CONSTRAINT `AreaCodeReference` FOREIGN KEY (`AreaCode`) REFERENCES `AreaSubdivision` (`Name`),
-  ADD CONSTRAINT `UserIDReference` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`);
+  ADD CONSTRAINT `UserReference` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`);
 ALTER TABLE Flag
-ADD CONSTRAINT `ReviewUserIDReference` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
+ADD CONSTRAINT `ReviewUserReference` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`),
   ADD CONSTRAINT `ReviewIDReference` FOREIGN KEY (`ID`) REFERENCES `Review` (`idReview`);
 ALTER TABLE Moderates
 ADD CONSTRAINT `AdminCode` FOREIGN KEY (`AdminCode`) REFERENCES `AdminUser` (`AdminCode`),
