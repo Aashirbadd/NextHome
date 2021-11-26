@@ -1,13 +1,17 @@
 DROP DATABASE nextHome;
+
 CREATE DATABASE nextHome;
+
 USE nextHome;
 ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 flush privileges;
+
 use houses;
-select *
-from players;
+select * from players;
+
 Insert into players (idPlayers, firstName, lastName)
 values (69, Mikail, TheUltimateGoose);
+
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
   `MLS Code` int DEFAULT NULL,
@@ -25,6 +29,7 @@ CREATE TABLE `Listings` (
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `ListingPhoto` (
   `ListingID` int NOT NULL,
   `FileName` varchar(255) NOT NULL,
@@ -34,12 +39,14 @@ CREATE TABLE `ListingPhoto` (
   KEY `ListingID_idx` (`ListingID`),
   CONSTRAINT `ListingID` FOREIGN KEY (`ListingID`) REFERENCES `Listings` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Brokerage` (
   `Website` varchar(255) NOT NULL,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Realtors` (
   `Website` varchar(255) NOT NULL,
   `PhoneNumber` varchar(45) NOT NULL,
@@ -47,10 +54,12 @@ CREATE TABLE `Realtors` (
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `AreaSubdivision` (
   `Name` varchar(10) NOT NULL,
   PRIMARY KEY (`Name`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `User` (
   `userID` int NOT NULL AUTO_INCREMENT,
   `FName` varchar(45) NOT NULL,
@@ -59,6 +68,7 @@ CREATE TABLE `User` (
   `Password` varchar(45) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Search` (
   `UserID` int NOT NULL,
   `AreaCode` varchar(10) NOT NULL,
@@ -66,6 +76,7 @@ CREATE TABLE `Search` (
   `PriceRange` varchar(45) NOT NULL,
   PRIMARY KEY (`AreaCode`, `UserID`, `SquareFootage`, `PriceRange`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Retrieves` (
   `UserID` int NOT NULL,
   `AreaCode` varchar(45) NOT NULL,
@@ -80,6 +91,7 @@ CREATE TABLE `Retrieves` (
     `ListingID`
   )
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
   `UserID` int NOT NULL,
@@ -88,11 +100,13 @@ CREATE TABLE `Review` (
   `AreaCode` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idReview`, `UserID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Flag` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `UserID` int NOT NULL,
   PRIMARY KEY (`ID`, `UserID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `AdminUser` (
   `AdminCode` int NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(45) NOT NULL,
@@ -101,19 +115,23 @@ CREATE TABLE `AdminUser` (
   `Password` varchar(45) NOT NULL,
   PRIMARY KEY (`AdminCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 CREATE TABLE `Moderates` (
   `AdminCode` int NOT NULL,
   `ReviewID` int NOT NULL,
   PRIMARY KEY (`AdminCode`, `ReviewID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 ALTER TABLE Listings
 ADD CONSTRAINT `BrokerageWebsite` FOREIGN KEY (`BrokerageWebsite`) REFERENCES `Brokerage` (`Website`),
   ADD CONSTRAINT `AreaName` FOREIGN KEY (`AreaName`) REFERENCES `AreaSubdivision` (`Name`),
   ADD CONSTRAINT `RealtorWebsite` FOREIGN KEY (`RealtorWebsite`) REFERENCES `Realtors` (`Website`),
   ADD CONSTRAINT `PostOwner` FOREIGN KEY (`UserID`) REFERENCES `User` (`userID`);
+  
 ALTER TABLE Search
 ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
   ADD CONSTRAINT `AreaCode` FOREIGN KEY (`AreaCode`) REFERENCES `AreaSubdivision` (`Name`);
+  
 /*
  ALTER TABLE Retrieves
  ADD CONSTRAINT `UserID` 
