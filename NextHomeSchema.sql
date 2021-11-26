@@ -20,7 +20,7 @@ CREATE TABLE `Listings` (
   `AreaName` varchar(45) NOT NULL,
   `UserID` int NOT NULL,
   `BrokerageWebsite` varchar(45) DEFAULT NULL,
-  `RealtorWebsite` varchar(255) NOT NULL,
+  `RealtorWebsite` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -90,6 +90,7 @@ CREATE TABLE `Retrieves` (
 CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
   `UserID` int NOT NULL,
+  `ReviewDescription` LONGTEXT NOT NULL,
   `ReviewDate` datetime DEFAULT NULL,
   `Flag` tinyint DEFAULT '0',
   `AreaCode` varchar(45) DEFAULT NULL,

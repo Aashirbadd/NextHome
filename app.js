@@ -15,6 +15,9 @@ app.use(router);
 const router2 = require('./routes/listings.js');
 app.use(router2);
 
+const router3 = require('./routes/review.js');
+app.use(router3);
+
 
 function getConnection(){
     return mysql.createConnection({
