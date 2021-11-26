@@ -3,14 +3,9 @@ DROP DATABASE nextHome;
 CREATE DATABASE nextHome;
 
 USE nextHome;
-ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY '';
 flush privileges;
 
-use houses;
-select * from players;
-
-Insert into players (idPlayers, firstName, lastName)
-values (69, Mikail, TheUltimateGoose);
 
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
@@ -24,7 +19,7 @@ CREATE TABLE `Listings` (
   `Address` varchar(45) NOT NULL,
   `AreaName` varchar(45) NOT NULL,
   `UserID` int NOT NULL,
-  `BrokerageWebsite` varchar(45) NOT NULL,
+  `BrokerageWebsite` varchar(45) DEFAULT NULL,
   `RealtorWebsite` varchar(255) NOT NULL,
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
@@ -155,3 +150,15 @@ ADD CONSTRAINT `ReviewUserIDReference` FOREIGN KEY (`UserID`) REFERENCES `User` 
 ALTER TABLE Moderates
 ADD CONSTRAINT `AdminCode` FOREIGN KEY (`AdminCode`) REFERENCES `AdminUser` (`AdminCode`),
   ADD CONSTRAINT `ReviewIDReference1` FOREIGN KEY (`ReviewID`) REFERENCES `Review` (`idReview`);
+
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NE');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NW');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
+
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`) VALUES ("realtor.ca", "5879690696", "Aayush Dahal Dahal Dahal");
+
+INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Realtor");
+
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
+
