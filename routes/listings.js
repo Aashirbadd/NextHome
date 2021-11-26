@@ -24,16 +24,26 @@ router2.post("/post_listing", (req,res) => {
     const areaName = req.body.create_area_name;
     const brokerage = req.body.create_brokerage_website;
     const realtor = req.body.create_realtor_website;
-    const user = req.body.create_user_id;
+    const user = req.body.create_user_email;
+    let queryString;
+    let queryInserts;
 
-    if(brokerage == ""){
-        console.log("NULLLLLLLLL");
-        
+    if(brokerage === "" && realtor === ""){
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName,  Email) VALUES (?,?,?,?,?,?,?,?,?,?);";
+        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, user];
+    } else if(brokerage === "" && realtor !== ""){
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, realtor, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, realtor, user];
+    } else if(brokerage !== "" && realtor === ""){
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, brokerage, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, user];
+    } else{
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, brokerage, realtor, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, realtor, user];
     }
 
     // Null realtor and Null brokerage --> So change as need.
-    const queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName,  UserID) VALUES (?,?,?,?,?,?,?,?,?,?);"
-    getConnection().query(queryString, [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, user], (err, results, fields)=>{
+    getConnection().query(queryString, queryInserts, (err, results, fields)=>{
         if(err){
             console.log("Failed to insert new listing: " + err)
             res.sendStatus(500)
