@@ -17,14 +17,15 @@
     </div>
     </div>
 <div class="outer-container">
-    <div class = "search-box">
+    <form class = "search-box" action = "/create_user" method = "POST">
         <div class="drop-menu-element">
         <h2>Become a NextHome Member! </h2>
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <a href="index.html" class="search-btn">Create Account</a>
-    </div>
+        <input type="text" placeholder="First Name" name = "create_first_name">
+        <input type="text" placeholder="Last Name" name = "create_last_name">
+        <input type="email" placeholder="Email" name = "create_email">
+        <input type="password" placeholder="Password" name = "create_password">
+        <button href="index.html" class="search-btn">Create Account</button>
+    </form>
 </div>
     </div>
 </body>
