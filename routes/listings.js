@@ -12,13 +12,12 @@ function getConnection(){
 }
 
 router2.get("/get_listings", (req, res) => {
-    const area = req.body.area;
-    const minPrice = req.body.min_price;
-    const maxPrice = req.body.max_price;
-    const minSqft = req.body.min_sqft;
-    const maxSqft = req.body.max_sqft;
-    console.log(minPrice);
-    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <= ?);";
+    const area = req.params.area;
+    const minPrice = req.params.min_price;
+    const maxPrice = req.params.max_price;
+    const minSqft = req.params.min_sqft;
+    const maxSqft = req.params.max_sqft;
+    const queryString = "SELECT * FROM Listings;";
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {
@@ -27,6 +26,30 @@ router2.get("/get_listings", (req, res) => {
             res.sendStatus(500)
             throw err
         }
+        console.log(area);
+        console.log("I think we fetched listings successfuly")
+        res.json(rows)
+    })
+
+})
+
+router2.get("/get_listings/:area/:min_price/:max_price?", (req, res) => {
+    const area = req.params.area;
+    const minPrice = req.params.min_price;
+    const maxPrice = req.params.max_price;
+    const minSqft = req.params.min_sqft;
+    const maxSqft = req.params.max_sqft;
+    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?);";
+    //AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <= ?);
+    const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
+
+    getConnection().query(queryString, queryInserts, (err, rows, fields) => {
+        if(err){
+            console.log("Failed to query for listings: " + err)
+            res.sendStatus(500)
+            throw err
+        }
+        console.log(area);
         console.log("I think we fetched listings successfuly")
         res.json(rows)
     })
