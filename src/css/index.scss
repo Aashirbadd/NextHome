@@ -115,12 +115,15 @@ select {
 
 .listing-container {
   margin-top: 50px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 20px;
+  flex-wrap: wrap;
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   justify-content: space-evenly;
 }
 
@@ -135,6 +138,8 @@ select {
   border-radius: 20px;
   border: solid grey 1px;
   transition: 0.2s;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .listing:hover {

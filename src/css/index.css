@@ -151,14 +151,22 @@ select {
 
 .listing-container {
   margin-top: 50px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -179,6 +187,8 @@ select {
   border: solid grey 1px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .listing:hover {
