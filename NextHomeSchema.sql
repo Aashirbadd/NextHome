@@ -89,6 +89,7 @@ CREATE TABLE `Retrieves` (
 CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
   `Email` varchar(45) NOT NULL,
+  `ReviewDescription` LONGTEXT NOT NULL,
   `ReviewDate` datetime DEFAULT NULL,
   `Flag` tinyint DEFAULT '0',
   `AreaCode` varchar(45) DEFAULT NULL,
