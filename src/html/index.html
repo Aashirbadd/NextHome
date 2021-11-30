@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextHome</title>
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <body>
-    <div  class="navbar">
-        <a href="index.html"><h1 class="title">NextHome</h1></a>
+    <div class="navbar">
+        <a href="index.html">
+            <h1 class="title">NextHome</h1>
+        </a>
         <div class="links">
             <a href="areaReviews.html" class="link">Area Reviews</a>
-            <a class = "link" href="post.html">Post Listing</a>
-            <a class = "link" href="login.html">Log in</a>            
+            <a class="link" href="post.html">Post Listing</a>
+            <a class="link" href="login.html">Log in</a>
         </div>
     </div>
 
     <div class="search-box">
-        
+
         <div class="title-search">
             <h1>Search Listings</h1>
         </div>
@@ -26,36 +30,36 @@
                 <p>Area Code</p>
                 <select name="area" id="area" class:>
                     <optgroup label="Area of City">
-                      <option value="NE">North-East</option>
-                      <option value="NW">North-West</option>
-                      <option value="SE">South-East</option>
-                      <option value="SW">South-West</option>
+                        <option value="NE">North-East</option>
+                        <option value="NW">North-West</option>
+                        <option value="SE">South-East</option>
+                        <option value="SW">South-West</option>
                     </optgroup>
-                  </select>
+                </select>
             </div>
 
             <div class="drop-menu-element">
                 <p>Min-Price</p>
                 <select name="min-price" id="min-price" class:>
-                  <optgroup label="Min Price?">
-                    <option value="400">$400,000</option>
-                    <option value="500">$500,000</option>
-                    <option value="600">$600,000</option>
-                    <option value="700">$700,000</option>
-                  </optgroup>
+                    <optgroup label="Min Price?">
+                        <option value="400">$400,000</option>
+                        <option value="500">$500,000</option>
+                        <option value="600">$600,000</option>
+                        <option value="700">$700,000</option>
+                    </optgroup>
                 </select>
 
             </div>
-            
+
             <div class="drop-menu-element">
                 <p>Max-Price</p>
                 <select name="min-price" id="min-price" class:>
-                  <optgroup label="Max Price?">
-                    <option value="400">$400,000</option>
-                    <option value="500">$500,000</option>
-                    <option value="600">$600,000</option>
-                    <option value="700">$700,000</option>
-                  </optgroup>
+                    <optgroup label="Max Price?">
+                        <option value="400">$400,000</option>
+                        <option value="500">$500,000</option>
+                        <option value="600">$600,000</option>
+                        <option value="700">$700,000</option>
+                    </optgroup>
                 </select>
 
             </div>
@@ -63,12 +67,12 @@
             <div class="drop-menu-element">
                 <p>Min-Sqft</p>
                 <select name="min-sqft" id="min-sqft" class:>
-                  <optgroup label="Min Square Foot?">
-                    <option value="1500">1500 sqft</option>
-                    <option value="2000">2000 sqft</option>
-                    <option value="2500">2500 sqft</option>
-                    <option value="3000">3000 sqft</option>
-                  </optgroup>
+                    <optgroup label="Min Square Foot?">
+                        <option value="1500">1500 sqft</option>
+                        <option value="2000">2000 sqft</option>
+                        <option value="2500">2500 sqft</option>
+                        <option value="3000">3000 sqft</option>
+                    </optgroup>
                 </select>
             </div>
 
@@ -76,19 +80,27 @@
                 <p>Max-Sqft</p>
                 <select name="max-sqft" id="max-sqft" class:>
                     <optgroup label="Max Square Foot?">
-                      <option value="1500">1500 sqft</option>
-                      <option value="2000">2000 sqft</option>
-                      <option value="2500">2500 sqft</option>
-                      <option value="3000">3000 sqft</option>
+                        <option value="1500">1500 sqft</option>
+                        <option value="2000">2000 sqft</option>
+                        <option value="2500">2500 sqft</option>
+                        <option value="3000">3000 sqft</option>
                     </optgroup>
-                  </select>
+                </select>
             </div>
 
-              <a href=""class="search-btn">Search</a>
+            <a href="" class="search-btn">Search</a>
 
         </div>
     </div>
 
+    <button class="addListing">Add Listing</button>
+    <h1 class="addy" id ="addy"></h1>
+
+    <div id="listing-container" class="listing-container">
+
+    </div>
+
+    <!--
     <div class="listing-container">
 
         <a href="listing.html" class="listing">
@@ -99,7 +111,7 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
@@ -111,7 +123,7 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
@@ -123,13 +135,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
-    </div>
-    <div class="listing-container">
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -138,10 +146,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -150,10 +157,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -162,10 +168,12 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
-    </div>
-</body>
+        -->
+        <script src="../js/index.js" defer></script>
+   </body>
+
 </html>
