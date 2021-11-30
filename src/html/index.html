@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextHome</title>
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <body>
-    <div  class="navbar">
-        <a href="index.html"><h1 class="title">NextHome</h1></a>
+    <div class="navbar">
+        <a href="index.html">
+            <h1 class="title">NextHome</h1>
+        </a>
         <div class="links">
             <a href="areaReviews.html" class="link">Area Reviews</a>
-            <a class = "link" href="post.html">Post Listing</a>
-            <a class = "link" href="login.html">Log in</a>            
+            <a class="link" href="post.html">Post Listing</a>
+            <a class="link" href="login.html">Log in</a>
         </div>
     </div>
 
     <form class="search-box" action = "/get_listings/area/min_price/max_price/min_sqft/max_sqft">
         
+
         <div class="title-search">
             <h1>Search Listings</h1>
         </div>
@@ -30,6 +35,7 @@
                       <option value="SE">South-East</option>
                       <option value="SW">South-West</option>
                   </select>
+
             </div>
 
             <div class="drop-menu-element">
@@ -39,10 +45,11 @@
                     <option value="500">$500,000</option>
                     <option value="600">$600,000</option>
                     <option value="700">$700,000</option>
+
                 </select>
 
             </div>
-            
+
             <div class="drop-menu-element">
                 <p>Max-Price</p>
                 <select name="max_price" id="min-price" class:>
@@ -50,6 +57,7 @@
                     <option value="500">$500,000</option>
                     <option value="600">$600,000</option>
                     <option value="700">$700,000</option>
+
                 </select>
 
             </div>
@@ -61,12 +69,14 @@
                     <option value="2000">2000 sqft</option>
                     <option value="2500">2500 sqft</option>
                     <option value="3000">3000 sqft</option>
+
                 </select>
             </div>
 
             <div class="drop-menu-element">
                 <p>Max-Sqft</p>
-                <select name="max_sqft" id="max-sqft" class:>
+
+              <select name="max_sqft" id="max-sqft" class:>
                       <option value="1500">1500 sqft</option>
                       <option value="2000">2000 sqft</option>
                       <option value="2500">2500 sqft</option>
@@ -76,9 +86,18 @@
 
               <button class="search-btn">Search</button>
 
+
         </div>
     </form>
 
+    <button class="addListing">Add Listing</button>
+    <h1 class="addy" id ="addy"></h1>
+
+    <div id="listing-container" class="listing-container">
+
+    </div>
+
+    <!--
     <div class="listing-container">
 
         <a href="listing.html" class="listing">
@@ -89,7 +108,7 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
@@ -101,7 +120,7 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
@@ -113,13 +132,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
-    </div>
-    <div class="listing-container">
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -128,10 +143,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -140,10 +154,9 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
-
         <a href="listing.html" class="listing">
             <div class="photo">
                 <img class="listing-img" src="../img/House.jpeg" alt="">
@@ -152,10 +165,12 @@
                 <h1>123 Fake Road Ne</h1> <br>
                 <p>Price: $425,000</p> <br>
                 <p>Sqft: 1800</p> <br>
-                
+
             </div>
         </a>
 
-    </div>
-</body>
+        -->
+        <script src="../js/index.js" defer></script>
+   </body>
+
 </html>

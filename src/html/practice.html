@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="address">Hello Is it me you're looking for</div>
+    <div id="price">Hello Is it me you're looking for</div>
+
+    <script>
+        fetch("sample-file.json")
+            .then(response => response.json())
+            .then(data=>{
+                console.log(data)
+                document.querySelector("#address").innerText=data.address
+                document.querySelector("#price").innerText=data.price
+
+            })
+        console.log("hello");
+    </script>
+</body>
+</html>
