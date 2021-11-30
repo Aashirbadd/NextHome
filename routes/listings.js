@@ -11,6 +11,28 @@ function getConnection(){
     })
 }
 
+router2.get("/get_listings", (req, res) => {
+    const area = req.body.area;
+    const minPrice = req.body.min_price;
+    const maxPrice = req.body.max_price;
+    const minSqft = req.body.min_sqft;
+    const maxSqft = req.body.max_sqft;
+    console.log(minPrice);
+    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <= ?);";
+    const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
+
+    getConnection().query(queryString, queryInserts, (err, rows, fields) => {
+        if(err){
+            console.log("Failed to query for listings: " + err)
+            res.sendStatus(500)
+            throw err
+        }
+        console.log("I think we fetched listings successfuly")
+        res.json(rows)
+    })
+
+})
+
 router2.post("/post_listing", (req,res) => {
 
     const mlsCode = req.body.create_MLS_code;
@@ -32,13 +54,13 @@ router2.post("/post_listing", (req,res) => {
         queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName,  Email) VALUES (?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, user];
     } else if(brokerage === "" && realtor !== ""){
-        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, realtor, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, RealtorWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, realtor, user];
     } else if(brokerage !== "" && realtor === ""){
-        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, brokerage, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, user];
     } else{
-        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, brokerage, realtor, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+        queryString = "INSERT INTO Listings (`MLS Code`, `Basement Type`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, realtor, user];
     }
 
