@@ -18,7 +18,7 @@ CREATE TABLE `Listings` (
   `Bathrooms` int NOT NULL,
   `Address` varchar(45) NOT NULL,
   `AreaName` varchar(45) NOT NULL,
-  `Email` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `BrokerageWebsite` varchar(45) DEFAULT NULL,
   `RealtorWebsite` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idListings`),
@@ -161,4 +161,4 @@ INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`) VALUES ("realto
 INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Realtor");
 
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
-
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
