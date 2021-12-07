@@ -11,6 +11,44 @@ function getConnection(){
     })
 }
 
+/*router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (req, res) => {
+    const area = req.params.area;
+    const minPrice = req.params.min_price;
+    const maxPrice = req.params.max_price;
+    const minSqft = req.params.min_sqft;
+    const maxSqft = req.params.max_sqft;
+    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
+    const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
+
+    getConnection().query(queryString, queryInserts, (err, rows, fields) => {
+        if(err){
+            console.log("Failed to query for listings: " + err)
+            res.sendStatus(500)
+            throw err
+        }
+        console.log(req.params);
+        console.log("I think we fetched listings successfuly")
+        res.json(rows)
+    })
+
+})*/
+
+router2.get("/get_listings/", (req, res, next) => {
+    console.log(req.query);
+    const queryString = "SELECT * FROM Listings;";
+    let allListings = [];
+    getConnection().query(queryString, (err, rows, fields) => {
+        if(err){
+            console.log("Failed to query for listings: " + err)
+            res.sendStatus(500)
+            throw err
+        }
+        console.log("I think we fetched listings successfuly")
+        res.json(rows)
+    });
+    console.log(allListings);
+})
+
 router2.get("/get_listings", (req, res) => {
     const area = req.params.area;
     const minPrice = req.params.min_price;
@@ -27,28 +65,6 @@ router2.get("/get_listings", (req, res) => {
             throw err
         }
         console.log(area);
-        console.log("I think we fetched listings successfuly")
-        res.json(rows)
-    })
-
-})
-
-router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (req, res) => {
-    const area = req.params.area;
-    const minPrice = req.params.min_price;
-    const maxPrice = req.params.max_price;
-    const minSqft = req.params.min_sqft;
-    const maxSqft = req.params.max_sqft;
-    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
-    const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
-
-    getConnection().query(queryString, queryInserts, (err, rows, fields) => {
-        if(err){
-            console.log("Failed to query for listings: " + err)
-            res.sendStatus(500)
-            throw err
-        }
-        console.log(req.params);
         console.log("I think we fetched listings successfuly")
         res.json(rows)
     })
