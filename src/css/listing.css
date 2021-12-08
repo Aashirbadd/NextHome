@@ -245,7 +245,7 @@ img {
   transition: 0.2s;
 }
 
-.disc-pane {
+#disc-pane {
   margin-top: 50px;
   margin-left: 200px;
   margin-right: 200px;
@@ -260,7 +260,7 @@ img {
           justify-content: space-evenly;
 }
 
-.left-pane,
+#left-pane,
 .right-pane > *,
 .review-pane {
   background-color: white;
@@ -279,7 +279,7 @@ img {
   padding: 30px;
 }
 
-.left-pane {
+#left-pane {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;

@@ -34,6 +34,7 @@ router.post("/create_review", (req, res) => {
         console.log("Inserted a new user with id: ", results.userID)
         res.end()
     })
+    res.redirect("./html/areaReviews.html");
 
     res.end();
 })
