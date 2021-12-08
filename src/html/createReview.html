@@ -20,27 +20,63 @@
     <form class = "outer-container" action = "/create_review" method = "POST">
         <div class = "search-box">
 
-            <h2>Which area of the city do you want to review: </h2>
+            <h2>Create an Awesome Review</h2>
             
+            
+        <div class="reviewContainer2">
             <div class="drop-menus">
+                <div class="drop-menu-element">
+                    <select name="reviewArea" id="area" class:>
+                       <option value="NE">North-East</option>
+                          <option value="NW">North-West</option>
+                          <option value="SE">South-East</option>
+                          <option value="SW">South-West</option>
+                      </select>
+                      
+                      <div class="review-btns">
+                      </div>
+                </div>
+            </div>
+            <textarea name="reviewTitle" id="" class="text reviewTitle" placeholder="Title of your review"></textarea>
+            <p></p>
 
-            <div class="drop-menu-element">
-                <select name="reviewArea" id="area" class:>
-                   <option value="NE">North-East</option>
-                      <option value="NW">North-West</option>
-                      <option value="SE">South-East</option>
-                      <option value="SW">South-West</option>
-                  </select>
-                  
-                  <div class="review-btns">
-                  </div>
+            <div class="rating">
+                <label>
+                  <input type="radio" name="stars" value="1" />
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="2" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="3" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>   
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="4" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="5" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
             </div>
         </div>
-          
             <textarea name="reviewDescription" id="" class="text" placeholder="Write your awesome review here!"></textarea>
 
             <div>
-                <button>Sumbit Reviews</button>
+                <button class="search-btn">Sumbit Review</button>
     </form>
 
     
