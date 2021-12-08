@@ -14,31 +14,51 @@ function AddNew(){
     newDiv.append(newAddress);
     ListingContainer.appendChild(newDiv);
     //document.body.appendChild(newDiv);                  // Append to html file
-    func2();
+    createListing();
     //console.log(listings);
 }
 
-func2();
+//createListing();
 
-function func2(){
+function createListing(listing, MLS){
     //let listings = document.querySelectorAll("#addy");
-    for (let i = 0; i < 9; i++) {
         const newDiv = document.createElement("a");       //Create new div
-        const newAddress = document.createElement("h2");
-        newAddress.classList.add("addy");
-        //newAddress.innerText.AddNew("hi");
         newDiv.classList.add('listing');                 // Add class to the list.
-        newAddress.id = 'addy';
-        newDiv.append(newAddress);
+        newDiv.id = MLS;
+
+
+
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
-      }
-    let listings = document.querySelectorAll("#addy");
-    let i = 0;
-    Array.from(listings).forEach(function(listing){
-        console.log(listing);
-        listing.textContent="House #" + i;
-        i++;
-    })
-    //console.log(listings);
+    let addresses = document.getElementById(MLS);
+    addresses.innerHTML= `  <img class="listing-img" src="../img/House.jpeg" alt="">
+                            <div class="listing-disc">
+                            <H2>${listing.Address}</H2>
+                            <p>Price: ${listing.Price}</p>
+                            <p>Square Footage: ${listing.SquareFootage}</p>
+                            <p>Bedrooms: ${listing.Bedrooms}</p>
+                            <p>Bathrooms: ${listing.Bathrooms}</p>
+                            </div>`;
+    
 }
+
+const j = fetch("/get_listings")
+            .then(response => response.json())
+            .then(data=>{
+                console.log("from shizzers");
+                console.log(data)
+                data.forEach(function(i){
+                    console.log(i);
+                    createListing(i, i.idListings);
+                })
+                return data;
+
+                //document.querySelector("#address").innerText=data.address
+                //document.querySelector("#price").innerText=data.price
+
+            })
+
+Array.from(j).forEach(function(i){
+    console.log(i);
+    
+})

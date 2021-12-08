@@ -9,8 +9,8 @@ flush privileges;
 
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
-  `MLS Code` int DEFAULT NULL,
-  `Basement Type` varchar(45) NOT NULL,
+  `MLSCode` int DEFAULT NULL,
+  `BasementType` varchar(45) NOT NULL,
   `Description` mediumtext NOT NULL,
   `Price` int NOT NULL,
   `SquareFootage` int NOT NULL,
@@ -93,6 +93,8 @@ CREATE TABLE `Review` (
   `ReviewDate` datetime DEFAULT NULL,
   `Flag` tinyint DEFAULT '0',
   `AreaCode` varchar(45) DEFAULT NULL,
+  `ReviewTitle` varchar(45) NOT NULL,
+  `ReviewRating` int NOT NULL,
   PRIMARY KEY (`idReview`, `Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -157,7 +159,6 @@ INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
 
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`) VALUES ("realtor.ca", "5879690696", "Aayush Dahal Dahal Dahal");
-
 INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Realtor");
 
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
