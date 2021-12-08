@@ -11,7 +11,7 @@ function getConnection(){
     })
 }
 
-/*router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (req, res) => {
+router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (req, res) => {
     const area = req.params.area;
     const minPrice = req.params.min_price;
     const maxPrice = req.params.max_price;
@@ -31,12 +31,10 @@ function getConnection(){
         res.json(rows)
     })
 
-})*/
+})
 
 router2.get("/get_listings/", (req, res, next) => {
-    console.log(req.query);
     const queryString = "SELECT * FROM Listings;";
-    let allListings = [];
     getConnection().query(queryString, (err, rows, fields) => {
         if(err){
             console.log("Failed to query for listings: " + err)
@@ -46,10 +44,9 @@ router2.get("/get_listings/", (req, res, next) => {
         console.log("I think we fetched listings successfuly")
         res.json(rows)
     });
-    console.log(allListings);
 })
 
-router2.get("/get_listings", (req, res) => {
+/*router2.get("/get_listings", (req, res) => {
     const area = req.params.area;
     const minPrice = req.params.min_price;
     const maxPrice = req.params.max_price;
@@ -69,7 +66,7 @@ router2.get("/get_listings", (req, res) => {
         res.json(rows)
     })
 
-})
+})*/
 
 router2.post("/post_listing", (req,res) => {
 
