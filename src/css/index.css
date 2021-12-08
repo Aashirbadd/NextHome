@@ -149,14 +149,6 @@ select {
           justify-content: center;
 }
 
-#just-line-break {
-  white-space: pre-line;
-}
-
-#line-break-and-tab {
-  white-space: pre-wrap;
-}
-
 .listing-container {
   margin-top: 50px;
   margin-left: 100px;
