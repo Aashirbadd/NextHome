@@ -59,7 +59,7 @@ function createListing(listing, MLS){
     
 }
 
-const j = fetch("/get_listings/2")
+const j = fetch("/get_listings/3")
             .then(response => response.json())
             .then(data=>{
                 console.log("from shizzers");
