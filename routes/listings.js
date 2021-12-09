@@ -11,12 +11,25 @@ function getConnection(){
     })
 }
 
-router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (req, res) => {
-    const area = req.params.area;
-    const minPrice = req.params.min_price;
-    const maxPrice = req.params.max_price;
-    const minSqft = req.params.min_sqft;
-    const maxSqft = req.params.max_sqft;
+router2.get("/get_listings/", (req, res, next) => {
+    const queryString = "SELECT * FROM Listings;";
+    getConnection().query(queryString, (err, rows, fields) => {
+        if(err){
+            console.log("Failed to query for listings: " + err)
+            res.sendStatus(500)
+            throw err
+        }
+        console.log("I think we fetched listings successfuly")
+        res.json(rows)
+    });
+})
+
+router2.get("/search_listings/", (req, res) => {
+    const area = req.query.area;
+    const minPrice = req.query.min_price;
+    const maxPrice = req.query.max_price;
+    const minSqft = req.query.min_sqft;
+    const maxSqft = req.query.max_sqft;
     const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
@@ -31,19 +44,6 @@ router2.get("/get_listings/:area/:min_price/:max_price/:min_sqft/:max_sqft", (re
         res.json(rows)
     })
 
-})
-
-router2.get("/get_listings/", (req, res, next) => {
-    const queryString = "SELECT * FROM Listings;";
-    getConnection().query(queryString, (err, rows, fields) => {
-        if(err){
-            console.log("Failed to query for listings: " + err)
-            res.sendStatus(500)
-            throw err
-        }
-        console.log("I think we fetched listings successfuly")
-        res.json(rows)
-    });
 })
 
 /*router2.get("/get_listings", (req, res) => {
