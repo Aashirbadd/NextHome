@@ -1,7 +1,7 @@
 # BetterHome
 Scrapes all single-family house listings in Calgary from the top 3 real-estate sites.
 
-**Developers**
+**Developers:**
 Aashirbad Dhital (@Aashirbadd),
 Mikail Munir (@MikailMunir01),
 Aayush Dahal (@Daayushhh)
