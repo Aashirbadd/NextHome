@@ -53,6 +53,26 @@ select {
   color: white;
 }
 
+.all {
+  color: white;
+  cursor: pointer;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.all:hover {
+  border-bottom: white solid 2px;
+}
+
+.allDiv {
+  padding-top: 20px;
+  margin: 3px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
 .search-btn:hover {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
