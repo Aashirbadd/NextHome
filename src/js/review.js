@@ -1,5 +1,5 @@
 console.log("Hello");
-const reviewContainer = document.getElementById("outer-container");
+const reviewContainer = document.getElementById("review-container");
 
 
 function createReview(review){
@@ -26,20 +26,49 @@ function createReview(review){
         
 }
 
-const j = fetch("/get_reviews")
-            .then(response => response.json())
-            .then(data=>{
-                console.log("from shizzers");
-                console.log(data)
-                data.forEach(function(i){
-                    console.log(i);
-                    createReview(i);
-                    //createListing(i, i.idListings);
+function getAllReviews(){
+    reviewContainer.innerHTML=``;
+    const g = fetch("/get_reviews")
+                .then(response => response.json())
+                .then(data=>{
+                    console.log("from shizzers");
+                    console.log(data)
+                    data.forEach(function(i){
+                        console.log(i);
+                        createReview(i);
+                        //createListing(i, i.idListings);
+                    })
+                    return data;
                 })
-                return data;
+}
 
-                //document.querySelector("#address").innerText=data.address
-                //document.querySelector("#price").innerText=data.price
+function getSpecificReviews(areaCode){
+    const g = fetch(`/get_specificReview?area=${areaCode}`) // /get_specificReview?area=NW
+                .then(response => response.json())
+                .then(data=>{
+                    console.log("from shizzers");
+                    console.log(data)
+                    data.forEach(function(i){
+                        console.log(i);
+                        createReview(i);
+                        //createListing(i, i.idListings);
+                    })
+                    return data;
+                })
+}
 
-            })
-j;
+function getReviews(){
+    const area = document.getElementById('area').value;
+    console.log(area);
+    reviewContainer.innerHTML=``;
+    if (area != "ALL"){
+        getSpecificReviews(area);
+    }
+    else{
+        getAllReviews();
+    }
+    
+}
+
+
+getAllReviews();

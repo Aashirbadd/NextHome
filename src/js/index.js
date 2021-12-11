@@ -1,32 +1,10 @@
-const BtnAdd = document.querySelector(".addListing");   // Obtains button with id of addListing
-console.log(BtnAdd);
 const ListingContainer = document.getElementById("listing-container");
-
-BtnAdd.addEventListener("click", AddNew);  // Pays attention to when this event happens
-
-function AddNew(){
-    const newDiv = document.createElement("a");       //Create new div
-    const newAddress = document.createElement("h1");
-    newAddress.classList.add("addy");
-    //newAddress.innerText.AddNew("hi");
-    newDiv.classList.add('listing');                 // Add class to the list.
-    newAddress.id = 'addy';
-    newDiv.append(newAddress);
-    ListingContainer.appendChild(newDiv);
-    //document.body.appendChild(newDiv);                  // Append to html file
-    createListing();
-    //console.log(listings);
-}
-
-//createListing();
 
 function createListing(listing, MLS){
     //let listings = document.querySelectorAll("#addy");
         const newDiv = document.createElement("a");       //Create new div
         newDiv.classList.add('listing');                 // Add class to the list.
         newDiv.id = MLS;
-
-
 
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
@@ -42,7 +20,32 @@ function createListing(listing, MLS){
     
 }
 
-const j = fetch("/get_listings")
+function searchAllListings(){
+    const j = fetch("/get_listings/")
+                .then(response => response.json())
+                .then(data=>{
+                    console.log("from shizzers");
+                    console.log(data)
+                    data.forEach(function(i){
+                        console.log(i);
+                        createListing(i, i.idListings);
+                    })
+                    return data;
+    
+                    //document.querySelector("#address").innerText=data.address
+                    //document.querySelector("#price").innerText=data.price
+    
+                })
+    
+    Array.from(j).forEach(function(i){
+        console.log(i);
+        
+    })
+    
+}
+
+function fetchSpecificListings(searchString){
+    const j = fetch(searchString)
             .then(response => response.json())
             .then(data=>{
                 console.log("from shizzers");
@@ -52,13 +55,29 @@ const j = fetch("/get_listings")
                     createListing(i, i.idListings);
                 })
                 return data;
-
-                //document.querySelector("#address").innerText=data.address
-                //document.querySelector("#price").innerText=data.price
-
             })
 
-Array.from(j).forEach(function(i){
+    Array.from(j).forEach(function(i){
     console.log(i);
-    
-})
+    })
+}
+
+function fn1(){
+    const areaName = document.getElementById("area").value;
+    const minPrice = document.getElementById("min-price").value;
+    const maxPrice = document.getElementById("max-price").value;
+    const minSqft = document.getElementById("min-sqft").value;
+    const maxSqft = document.getElementById("max-sqft").value;
+
+    const searchString = `/search_listings?area=${areaName}&min_price=${minPrice}&max_price=${maxPrice}&min_sqft=${minSqft}&max_sqft=${maxSqft}`
+
+    ListingContainer.innerHTML = ``;
+    fetchSpecificListings(searchString);
+}
+
+function getAll(){
+    ListingContainer.innerHTML = ``;
+    searchAllListings();
+}
+
+getAll();

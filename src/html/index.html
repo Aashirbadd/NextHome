@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <form class="search-box" action = "/get_listings" method = "get">
+    <div class="search-box">
         
 
         <div class="title-search">
@@ -41,10 +41,10 @@
             <div class="drop-menu-element">
                 <p>Min-Price</p>
                 <select name="min_price" id="min-price" class:>
-                    <option value="400">$400,000</option>
-                    <option value="500">$500,000</option>
-                    <option value="600">$600,000</option>
-                    <option value="700">$700,000</option>
+                    <option value="400000">$400,000</option>
+                    <option value="500000">$500,000</option>
+                    <option value="600000">$600,000</option>
+                    <option value="700000">$700,000</option>
 
                 </select>
 
@@ -52,12 +52,11 @@
 
             <div class="drop-menu-element">
                 <p>Max-Price</p>
-                <select name="max_price" id="min-price" class:>
-                    <option value="400">$400,000</option>
-                    <option value="500">$500,000</option>
-                    <option value="600">$600,000</option>
-                    <option value="700">$700,000</option>
-
+                <select name="max_price" id="max-price" class:>
+                    <option value="700000">$700,000</option>
+                    <option value="600000">$600,000</option>
+                    <option value="500000">$500,000</option>
+                    <option value="400000">$400,000</option>
                 </select>
 
             </div>
@@ -77,21 +76,23 @@
                 <p>Max-Sqft</p>
 
               <select name="max_sqft" id="max-sqft" class:>
-                      <option value="1500">1500 sqft</option>
-                      <option value="2000">2000 sqft</option>
-                      <option value="2500">2500 sqft</option>
-                      <option value="3000">3000 sqft</option>
+                    <option value="3000">3000 sqft</option>
+                    <option value="2500">2500 sqft</option>
+                    <option value="2000">2000 sqft</option>
+                    <option value="1500">1500 sqft</option>
                   </select>
             </div>
 
-              <button class="search-btn">Search</button>
-
+              <button onclick= "fn1()" class="search-btn">Search</button>
 
         </div>
-    </form>
-
-    <button class="addListing">Add Listing</button>
-    <h1 class="addy" id ="addy"></h1>
+        
+        <div class="allDiv">
+            <a onclick = "getAll()" class="all">View All </a>
+        </div>
+    
+    
+    </div>
 
     <div id="listing-container" class="listing-container">
 
