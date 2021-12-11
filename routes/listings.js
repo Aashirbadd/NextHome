@@ -24,7 +24,6 @@ router2.get("/get_listings/", (req, res, next) => {
     });
 })
 
-<<<<<<< HEAD
 router2.get("/get_listings/:id", (req, res, next) => {
     const listingID = req.params.id;
     const queryString = "SELECT * FROM Listings WHERE (idListings = ?);";
@@ -41,10 +40,6 @@ router2.get("/get_listings/:id", (req, res, next) => {
 })
 
 
-router2.get("/get_listings/", (req, res, next) => {
-    const queryString = "SELECT * FROM Listings;";
-    getConnection().query(queryString, (err, rows, fields) => {
-=======
 router2.get("/search_listings/", (req, res) => {
     const area = req.query.area;
     const minPrice = req.query.min_price;
@@ -55,7 +50,6 @@ router2.get("/search_listings/", (req, res) => {
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {
->>>>>>> main
         if(err){
             console.log("Failed to query for listings: " + err)
             res.sendStatus(500)
@@ -130,6 +124,7 @@ router2.post("/post_listing", (req,res) => {
         }
         
         console.log("Inserted a new listing with id: ", results.idListings)
+        res.end()
     })
     res.redirect("./html/index.html");
     res.end()
