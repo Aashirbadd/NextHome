@@ -190,7 +190,7 @@ img {
   transition: 0.2s;
 }
 
-.disc-pane {
+#disc-pane {
   //background-color: aqua;
   margin-top: 50px;
   margin-left: 200px;
@@ -203,7 +203,7 @@ img {
   //height: 300px;
 }
 
-.left-pane,
+#left-pane,
 .right-pane > *,
 .review-pane {
   background-color: white;
@@ -217,7 +217,7 @@ img {
   transition: 0.2s;
   padding: 30px;
 }
-.left-pane {
+#left-pane {
   flex-grow: 2;
   width: 66%;
   height: fit-content;
