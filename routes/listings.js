@@ -108,7 +108,6 @@ router2.post("/post_listing", (req,res) => {
         }
         
         console.log("Inserted a new listing with id: ", results.idListings)
-        res.end()
     })
 
     res.end()
