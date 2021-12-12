@@ -1,3 +1,4 @@
+
 console.log("Hello");
 const reviewContainer = document.getElementById("review-container");
 
@@ -13,22 +14,19 @@ function createReview(review){
     let emptyStar = "☆";
     const rating = filledStar.repeat(review.ReviewRating) + emptyStar.repeat(5-review.ReviewRating);
 
-    let flagPane = ``;
-
-
     if (review.Flag){
-        flagPane = flagPane + `<a class="search-btn flag" onclick="flagReview(${review.idReview})" >Unflag</a>
-        </div>`;
+        flag = `<a class="search-btn flag" onclick="unFlagReview(${review.idReview})" >Unflag</a>`;
     }
-    else{
-        flagPane = flagPane + `<div class="rightPane"> <a class="search-btn flag" onclick="flagReview(${review.idReview})" >Flag</a>`;
-    }
-    
+    else flag = `<div class="rightPane"> <a class="search-btn flag" onclick="flagReview(${review.idReview})" >Flag</a>`;
+
     const urlString = window.location.href;
-    console.log(urlString);
+
     if (urlString.includes("moderateReview")){
-        flagPane = flagPane + `<a class="search-btn del" onclick="deleteReview(${review.idReview})" >Delete</a> </div>`
-    } else flagPane += "</div>"
+        del = `<a class="search-btn del" onclick="deleteReview(${review.idReview})" >Delete</a> </div>`;
+    } else del = ``;
+    
+    let flagPane = `<div class="rightPane"> ${flag} ${del} </div>`;
+
 
         //ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
@@ -45,12 +43,24 @@ function createReview(review){
                             ${flagPane}`;        
 }
 
-function flagReview(reviewID){
-    console.log("Review " + reviewID + " has been flagged");
+async function flagReview(reviewID){
+    return fetch(`/flag_review/${reviewID}`)
+        .then(getReviews());
+}
+
+async function unFlagReview(reviewID){
+    console.log(reviewID)
+    let element = document.getElementById(reviewID);
+    console.log("hi" + element);
+    fetch(`/unflag_review/${reviewID}`)
+        .then(getReviews());
+    
+    
 }
 
 function deleteReview(reviewID){
-    console.log("Review " + reviewID + " has been deleted");
+    fetch(`/delete_review/${reviewID}`);
+    getReviews();
 }
 
 function getAllReviews(){
