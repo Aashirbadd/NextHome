@@ -12,30 +12,78 @@ function getConnection(){
 }
 
 router.post("/create_review", (req, res) => {
-    const Email = "aashirbadd@gmail.com"
+    const email = req.body.email;
+    const password = req.body.password;
     const reviewDescription = req.body.reviewDescription;
     const reviewDate = new Date();
     const flag = 0;
     const areaCode = req.body.reviewArea;
     const reviewTitle = req.body.reviewTitle;
     const reviewRating = req.body.stars;
-
+    let isUser = false;
     console.log(reviewDescription + " " + areaCode);
 
-    const queryString = "INSERT INTO Review (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating) VALUES (?,?,?,?,?,?,?);"
+    const queryString1 = "SELECT Email FROM User WHERE Email = ? AND Password = ?;"
+    const queryString2 = "INSERT INTO Review (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating) VALUES (?,?,?,?,?,?,?);"
 
-    getConnection().query(queryString, [Email, reviewDescription, reviewDate, flag, areaCode, reviewTitle, reviewRating], (err, results, fields) =>{ 
+    getConnection().query(queryString1, [email,password], (err, results, fields) => {
         if(err){
-            console.log("Failed to insert new user: " + err)
-            res.sendStatus(500)
-            return
+            console.log("Failed to find user" + err);
+            res.sendStatus(500);
+        } else if(results.length > 0){
+            console.log("User found! You can post this review. ");
+            getConnection().query(queryString2, [email, reviewDescription, reviewDate, flag, areaCode, reviewTitle, reviewRating], (err, results, fields) =>{ 
+                if(err){
+                    console.log("Failed to insert new user: " + err)
+                    res.sendStatus(500)
+                    return
+                }
+                res.redirect("./html/areaReviews.html");
+            })
+        } else{
+            console.log("Wrong account details!!!")
+            res.redirect("/html/createReview.html");
         }
-        console.log(reviewRating);
-        console.log("Inserted a new user with id: ", results.userID)
     })
-    res.redirect("./html/areaReviews.html");
+})
 
-    //res.end();
+router.delete("/delete_review", (req,res) => {
+    const id = req.body.reviewID
+    getConnection().query("DELETE FROM Review WHERE idReview = ?", [id], (err, results, fields) => {
+        if(err){
+            console.log("Failed to delete review: " + err);
+            return
+        } else{
+            console.log("Deletion successful!");
+            res.end();
+        }
+    })
+})
+
+router.post("/flag_review", (req,res) => {
+    const id = req.body.reviewID
+    getConnection().query("UPDATE Review SET Flag = 1 WHERE idReview = ?", [id], (err, results, fields) => {
+        if(err){
+            console.log("Failed to flag review: " + err);
+            return
+        } else{
+            console.log("flag successful!");
+            res.end();
+        }
+    })
+})
+
+router.post("/unflag_review", (req,res) => {
+    const id = req.body.reviewID
+    getConnection().query("UPDATE Review SET Flag = 0 WHERE idReview = ?", [id], (err, results, fields) => {
+        if(err){
+            console.log("Failed to unflag review: " + err);
+            return
+        } else{
+            console.log("unflag successful!");
+            res.end();
+        }
+    })
 })
 
 

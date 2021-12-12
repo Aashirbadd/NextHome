@@ -46,7 +46,7 @@ router2.get("/search_listings/", (req, res) => {
     const maxPrice = req.query.max_price;
     const minSqft = req.query.min_sqft;
     const maxSqft = req.query.max_sqft;
-    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
+    const queryString = "SELECT * FROM L as Listings, B as Brokerage, R as Realtors WHERE (L.AreaName = ?) AND (L.Price >= ? AND L.Price <= ?) AND (L.SquareFootage >= ? AND L.SquareFootage <=?) AND (L.BrokerageWebsite = B.Website) AND (L.RealtorWebsite = B.Website);";
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {
@@ -98,7 +98,9 @@ router2.post("/post_listing", (req,res) => {
     const brokerage = req.body.create_brokerage_website;
     const realtor = req.body.create_realtor_website;
     const user = req.body.create_user_email;
+    const password = req.body.password;
     let queryString;
+    let queryString2 = "SELECT Email FROM User WHERE Email = ? AND Password = ?;"
     let queryInserts;
 
     if(brokerage === "" && realtor === ""){
@@ -114,20 +116,29 @@ router2.post("/post_listing", (req,res) => {
         queryString = "INSERT INTO Listings (`MLSCode`, `BasementType`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, realtor, user];
     }
-
-    // Null realtor and Null brokerage --> So change as need.
-    getConnection().query(queryString, queryInserts, (err, results, fields)=>{
+    
+    getConnection().query(queryString2, [user, password], (err, results, fields)=>{
+        console.log(user);
         if(err){
             console.log("Failed to insert new listing: " + err)
             res.sendStatus(500)
             return
         }
-        
-        console.log("Inserted a new listing with id: ", results.idListings)
-        res.end()
+        else if(results.length > 0){
+            console.log("User found! You can post this listing.");
+            getConnection().query(queryString, queryInserts, (err, results, fields) => {
+                if(err){
+                    console.log("Failed to insert new user: " + err)
+                    res.sendStatus(500)
+                    return
+                }
+                res.redirect("/html/index.html");
+            })
+        } else{
+            console.log("Incorrect user information!")
+            res.redirect("/html/post.html")
+        }
     })
-    res.redirect("./html/index.html");
-    res.end()
 })
 
 module.exports = router2       //Export this file somehow.

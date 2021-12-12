@@ -37,7 +37,7 @@ router.post("/create_user", (req, res) => {
                     return
                 }
                 console.log("New user inserted into database");
-                res.redirect("/html/login.html")
+                res.redirect("/html/index.html")
             })
 
         }
@@ -57,7 +57,6 @@ router.get("/user_login", (req,res) => {
         if(results.length > 0){
             console.log("Login successful!")
         } else{
-            //alert.("Invalid Login!");
             console.log("Invalid email or password");
             res.redirect("/html/login.html");
             res.end();
