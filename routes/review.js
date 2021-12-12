@@ -45,7 +45,7 @@ router.post("/create_review", (req, res) => {
     })
 })
 
-router.delete("/delete_review/:reviewID", (req,res) => {
+router.get("/delete_review/:reviewID", (req,res) => {
     const id = req.params.reviewID;
     getConnection().query("DELETE FROM `Review` WHERE idReview = ?;", [id], (err, results, fields) => {
         if(err){
