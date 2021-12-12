@@ -217,6 +217,7 @@ img {
 }
 
 .review-pane {
+  display: flex;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -229,4 +230,30 @@ img {
   padding: 30px;
   margin-top: 60px;
   width: 70%;
+}
+
+.leftPane {
+  width: 90%;
+}
+
+.rightPane {
+  //right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+
+.del,
+.flag {
+  width: 3.4em;
+  color: black;
+  text-align: center;
+  border: 1px black solid;
+  cursor: pointer;
+}
+.del {
+  background-color: red;
+}
+.flag {
+  background-color: rgb(255, 255, 0);
 }

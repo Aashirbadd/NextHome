@@ -13,17 +13,44 @@ function createReview(review){
     let emptyStar = "☆";
     const rating = filledStar.repeat(review.ReviewRating) + emptyStar.repeat(5-review.ReviewRating);
 
+    let flagPane = ``;
+
+
+    if (review.Flag){
+        flagPane = flagPane + `<a class="search-btn flag" onclick="flagReview(${review.idReview})" >Unflag</a>
+        </div>`;
+    }
+    else{
+        flagPane = flagPane + `<div class="rightPane"> <a class="search-btn flag" onclick="flagReview(${review.idReview})" >Flag</a>`;
+    }
+    
+    const urlString = window.location.href;
+    console.log(urlString);
+    if (urlString.includes("moderateReview")){
+        flagPane = flagPane + `<a class="search-btn del" onclick="deleteReview(${review.idReview})" >Delete</a> </div>`
+    } else flagPane += "</div>"
+
         //ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(review.idReview);
-    addresses.innerHTML= `  <H1>${review.ReviewTitle}</H1>
+    addresses.innerHTML= `  <div class="leftPane">
+                            <H1>${review.ReviewTitle}</H1>
                             </br>
                             <p>${rating}</p>
                             </br>
                             <p>Area: ${review.AreaCode} | User: ${review.Email} |  Date: ${review.ReviewDate}</p>
                             </br>
-                            <p>Description: \n${review.ReviewDescription}</p>`;
-        
+                            <p>Description: \n${review.ReviewDescription}</p>
+                            </div>
+                            ${flagPane}`;        
+}
+
+function flagReview(reviewID){
+    console.log("Review " + reviewID + " has been flagged");
+}
+
+function deleteReview(reviewID){
+    console.log("Review " + reviewID + " has been deleted");
 }
 
 function getAllReviews(){

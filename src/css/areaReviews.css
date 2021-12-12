@@ -282,6 +282,9 @@ img {
 }
 
 .review-pane {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -298,5 +301,37 @@ img {
   padding: 30px;
   margin-top: 60px;
   width: 70%;
+}
+
+.leftPane {
+  width: 90%;
+}
+
+.rightPane {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10%;
+}
+
+.del,
+.flag {
+  width: 3.4em;
+  color: black;
+  text-align: center;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+.del {
+  background-color: red;
+}
+
+.flag {
+  background-color: yellow;
 }
 /*# sourceMappingURL=areaReviews.css.map */
