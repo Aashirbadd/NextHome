@@ -57,6 +57,7 @@ router.get("/user_login", (req,res) => {
         if(results.length > 0){
             console.log("Login successful!")
         } else{
+            //alert.("Invalid Login!");
             console.log("Invalid email or password");
             res.redirect("/html/login.html");
             res.end();

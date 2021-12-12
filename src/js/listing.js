@@ -19,6 +19,7 @@ function AddNew(){
 
 //createListing();
 function leftPane(listing){
+    
     const ListingContainer = document.getElementById("left-pane");
     ListingContainer.innerHTML = `
         <h1>${listing.Address}</h1>
@@ -42,13 +43,15 @@ function createListing(listing, MLS){
     //let listings = document.querySelectorAll("#addy");
         const newDiv = document.createElement("a");       //Create new div
         newDiv.classList.add('listing');                 // Add class to the list.
+        newDiv.href = "listing.js";
+        console.log("yo" + newDiv.href);
         newDiv.id = MLS;
-
 
 
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(MLS);
+    addresses.href = "listing.js";
     addresses.innerHTML= `  <div class="listing-disc">
                             <H2>${listing.Address}</H2>
                             <p>Price: ${listing.Price}</p>
@@ -58,8 +61,13 @@ function createListing(listing, MLS){
                             </div>`;
     
 }
+const urlString = window.location.href;
+const url = new URL(urlString);
+const id = url.searchParams.get("id");
+console.log("Url" + id);
 
-const j = fetch("/get_listings/3")
+
+const j = fetch(`/get_listings/${id}`)
             .then(response => response.json())
             .then(data=>{
                 console.log("from shizzers");
@@ -67,10 +75,8 @@ const j = fetch("/get_listings/3")
                 leftPane(data[0]);
                 rightPane(data[0]);
                 return data;
-
                 //document.querySelector("#address").innerText=data.address
                 //document.querySelector("#price").innerText=data.price
-
             })
 
 Array.from(j).forEach(function(i){
