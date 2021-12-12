@@ -13,11 +13,13 @@
         <div class="links">
             <a href="areaReviews.html" class="link">Area Reviews</a>
             <a class = "link" href="post.html">Post Listing</a>
-            <a class = "link" href="login.html">Log in</a>            
+            <a class = "link" href="createAccount.html">Create an Account</a>            
         </div>
     </div>
     <form id = "Listing-info" action = "/post_listing" method = "POST">
         <h2>Enter your listing details: </h2>
+        <input type = "text" placeholder = "Email" name = "create_user_email">
+        <input type = password placeholder = "Password" name = password>
         <input type="text" placeholder="MLS code" name = "create_MLS_code">
         <input type="text" placeholder="address" name = "create_address">
         <input type = "text" placeholder = "area name" name = create_area_name>
@@ -29,7 +31,6 @@
         <input type="number" placeholder="bathrooms" name = "create_bathrooms">
         <input type = "text" placeholder = "brokerage website" name = "create_brokerage_website">
         <input type = "text" placeholder = "realtor website" name = "create_realtor_website">
-        <input type = "text" placeholder = "Email" name = "create_user_email">
         <button>Post</button>
     </form>
 </body>
