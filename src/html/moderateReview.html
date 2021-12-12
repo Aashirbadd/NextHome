@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="../css/areaReviews.css">
+</head>
+<body>
+    
+<div class="navbar">
+    <a href="adminPage.html">
+        <h1 class="title">NextHome - Admin Console</h1>
+    </a>
+    <div class="links">
+        <a href="moderateReview.html" class="link">Moderate Reviews</a>
+        <a class="link" href="index.html">Log Out</a>
+    </div>
+</div>
+
+
+<div class="outer-container" id="outer-container">
+    <div class = "search-box">
+        <h2>Filter Reviews: </h2>
+
+        <div class="drop-menus">
+        <div class="drop-menu-element">
+            <select name="area" id="area">
+                <option value="Flagged">Flagged</option>
+                <option value="ALL">All</option>
+                <option value="NE">North-East</option>
+                <option value="NW">North-West</option>
+                <option value="SE">South-East</option>
+                <option value="SW">South-West</option>
+              </select>
+              <a onclick="getReviews()" class="search-btn">Search</a>
+              <div class="review-btns">
+              </div>
+        </div>
+    </div>
+   
+    <div>    
+        <a href="createReview.html" class="link">Create Review</a>
+    </div>
+
+    </div>
+    
+    </div>
+    <div id="review-container" class='outer-container'> </div>
+    <script src="../js/review.js"></script>
+</body>
+</html>
