@@ -49,10 +49,13 @@ async function flagReview(reviewID){
 }
 
 async function unFlagReview(reviewID){
+    console.log(reviewID)
+    let element = document.getElementById(reviewID);
+    console.log("hi" + element);
     fetch(`/unflag_review/${reviewID}`)
         .then(getReviews());
-    const element = document.getElementById(reviewID);
-    element.innerHTML = "Hi";
+    
+    
 }
 
 function deleteReview(reviewID){
