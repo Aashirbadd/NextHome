@@ -63,8 +63,28 @@ router.get("/user_login", (req,res) => {
             return;
         }
         res.redirect("/html/index.html");
+    })
+})
 
-        res.end();
+router.get("/admin_login", (req,res) => {
+    const email = req.query.email;
+    const password = req.query.password;
+    const queryString = "SELECT Email, Password FROM User WHERE (Email = mikailmunir01@gmail.com AND Password = bordgilla) OR (Email = aashirbadd@gmail.com AND Password = cookie123);";
+
+    getConnection().query(queryString, [email, password], (err, results, fields) => {
+        if(err){
+            console.log("Could not login!!!")
+        }
+        console.log(results);
+        if(results.length > 0){
+            console.log("Login successful!")
+        } else{
+            console.log("Invalid email or password");
+            res.redirect("/html/login.html");
+            res.end();
+            return;
+        }
+        res.redirect("/html/moderateReview.html");
     })
 })
 
