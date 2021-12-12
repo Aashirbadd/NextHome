@@ -12,7 +12,7 @@ function getConnection(){
 }
 
 router.post("/create_review", (req, res) => {
-    const email = req.body.email;
+    const email = "aashirbadd@gmail.com";
     const password = req.body.password;
     const reviewDescription = req.body.reviewDescription;
     const reviewDate = new Date();
@@ -20,8 +20,6 @@ router.post("/create_review", (req, res) => {
     const areaCode = req.body.reviewArea;
     const reviewTitle = req.body.reviewTitle;
     const reviewRating = req.body.stars;
-    let isUser = false;
-    console.log(reviewDescription + " " + areaCode);
 
     const queryString1 = "SELECT Email FROM User WHERE Email = ? AND Password = ?;"
     const queryString2 = "INSERT INTO Review (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating) VALUES (?,?,?,?,?,?,?);"
@@ -47,41 +45,41 @@ router.post("/create_review", (req, res) => {
     })
 })
 
-router.delete("/delete_review", (req,res) => {
-    const id = req.body.reviewID
-    getConnection().query("DELETE FROM Review WHERE idReview = ?", [id], (err, results, fields) => {
+router.delete("/delete_review/:reviewID", (req,res) => {
+    const id = req.params.reviewID;
+    getConnection().query("DELETE FROM `Review` WHERE idReview = ?;", [id], (err, results, fields) => {
         if(err){
             console.log("Failed to delete review: " + err);
             return
         } else{
             console.log("Deletion successful!");
-            res.end();
+            res.end("review deleted!");
         }
     })
 })
 
-router.post("/flag_review", (req,res) => {
-    const id = req.body.reviewID
-    getConnection().query("UPDATE Review SET Flag = 1 WHERE idReview = ?", [id], (err, results, fields) => {
+router.get("/flag_review/:id", (req,res) => {
+    const id = req.params.id;
+    getConnection().query("UPDATE Review SET Flag = ? WHERE idReview = ?", [1, id], (err, results, fields) => {
         if(err){
             console.log("Failed to flag review: " + err);
             return
         } else{
             console.log("flag successful!");
-            res.end();
+            res.end("review flagged");
         }
     })
 })
 
-router.post("/unflag_review", (req,res) => {
-    const id = req.body.reviewID
+router.get("/unflag_review/:id", (req,res) => {
+    const id = req.params.id;
     getConnection().query("UPDATE Review SET Flag = 0 WHERE idReview = ?", [id], (err, results, fields) => {
         if(err){
             console.log("Failed to unflag review: " + err);
             return
         } else{
             console.log("unflag successful!");
-            res.end();
+            res.end("review unflagged!");
         }
     })
 })
