@@ -26,7 +26,7 @@ router2.get("/get_listings/", (req, res, next) => {
 
 router2.get("/get_listings/:id", (req, res, next) => {
     const listingID = req.params.id;
-    const queryString = "SELECT * FROM Listings WHERE (idListings = ?);";
+    const queryString = "SELECT * FROM Listings, Brokerage, Realtors WHERE idListings = ? AND (BrokerageWebsite = Brokerage.Website) AND (RealtorWebsite = Realtors.Website);";
     const queryInserts = [listingID];
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {
         if(err){
@@ -46,7 +46,7 @@ router2.get("/search_listings/", (req, res) => {
     const maxPrice = req.query.max_price;
     const minSqft = req.query.min_sqft;
     const maxSqft = req.query.max_sqft;
-    const queryString = "SELECT * FROM L as Listings, B as Brokerage, R as Realtors WHERE (L.AreaName = ?) AND (L.Price >= ? AND L.Price <= ?) AND (L.SquareFootage >= ? AND L.SquareFootage <=?) AND (L.BrokerageWebsite = B.Website) AND (L.RealtorWebsite = B.Website);";
+    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {
