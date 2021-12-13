@@ -74,6 +74,7 @@ body {
 
 #Listing-info {
   margin-top: 100px;
+  margin-bottom: 100px;
   color: white;
   height: 50%;
   width: 50%;
@@ -99,5 +100,72 @@ body {
 #Listing-info > * {
   margin: 10px;
   padding: 10px;
+  border-radius: 1px;
+  border: none;
+}
+
+.gg {
+  margin: 0px;
+  padding: 10px;
+}
+
+textarea {
+  width: 80%;
+  min-height: 40px;
+  resize: vertical;
+}
+
+textarea::-webkit-input-placeholder {
+  text-align: center;
+}
+
+textarea:-ms-input-placeholder {
+  text-align: center;
+}
+
+textarea::-ms-input-placeholder {
+  text-align: center;
+}
+
+textarea::placeholder {
+  text-align: center;
+}
+
+.drops {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.drops > * {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+select {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  border-radius: 5px;
+  overflow: auto;
 }
 /*# sourceMappingURL=post.css.map */

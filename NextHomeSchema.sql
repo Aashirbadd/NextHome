@@ -21,6 +21,7 @@ CREATE TABLE `Listings` (
   `Email` varchar(45) NOT NULL,
   `BrokerageWebsite` varchar(45) DEFAULT NULL,
   `RealtorWebsite` varchar(255) DEFAULT NULL,
+  `ImageURL` varchar(500) DEFAULT '../img/House.jpeg',
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;

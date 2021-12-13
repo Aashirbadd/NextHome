@@ -9,7 +9,7 @@ function createListing(listing, MLS){
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(MLS);
-    addresses.innerHTML= `  <img class="listing-img" src="../img/House.jpeg" alt="">
+    addresses.innerHTML= `  <img class="listing-img" src="${listing.ImageURL}" alt="">
                             <div class="listing-disc">
                             <H2>${listing.Address}</H2>
                             <p>Price: ${listing.Price}</p>
