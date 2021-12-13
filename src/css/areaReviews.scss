@@ -260,3 +260,10 @@ img {
 .gang {
   display: flex;
 }
+.userInfo {
+  display: flex;
+  width: 100%;
+}
+.userInfo > * {
+  width: 40px;
+}

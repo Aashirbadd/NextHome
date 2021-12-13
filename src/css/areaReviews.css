@@ -340,4 +340,15 @@ img {
   display: -ms-flexbox;
   display: flex;
 }
+
+.userInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.userInfo > * {
+  width: 40px;
+}
 /*# sourceMappingURL=areaReviews.css.map */

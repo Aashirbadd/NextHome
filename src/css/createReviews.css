@@ -170,6 +170,7 @@ select {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border: none;
 }
 
 .drop-menu-element > * {
@@ -313,6 +314,7 @@ img {
   border-radius: 5px;
   padding: 10px;
   resize: vertical;
+  border: none;
 }
 
 .reviewTitle {
@@ -412,5 +414,59 @@ img {
   margin-left: 30px;
   margin-right: 10px;
   justify-self: flex-end;
+}
+
+.userInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 83%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 0px 0px 20px 0px;
+}
+
+.userInfo > * {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 5px 5px 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+input:-ms-input-placeholder {
+  text-align: center;
+}
+
+input::-ms-input-placeholder {
+  text-align: center;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+input {
+  text-align: center;
+}
+
+.submitBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=createReviews.css.map */
