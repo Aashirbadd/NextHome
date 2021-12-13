@@ -15,9 +15,9 @@ function createReview(review){
     const rating = filledStar.repeat(review.ReviewRating) + emptyStar.repeat(5-review.ReviewRating);
 
     if (review.Flag){
-        flag = `<a class="search-btn flag" onclick="unFlagReview(${review.idReview})" >Unflag</a>`;
+        flag = `<a class="search-btn flag" id="flag" onclick="unFlagReview(${review.idReview})" >Unflag</a>`;
     }
-    else flag = `<div class="rightPane"> <a class="search-btn flag" onclick="flagReview(${review.idReview})" >Flag</a>`;
+    else flag = `<a class="search-btn flag" id="flag" onclick="flagReview(${review.idReview})" >Flag</a>`;
 
     const urlString = window.location.href;
 
@@ -25,7 +25,7 @@ function createReview(review){
         del = `<a class="search-btn del" onclick="deleteReview(${review.idReview})" >Delete</a> </div>`;
     } else del = ``;
     
-    let flagPane = `<div class="rightPane"> ${flag} ${del} </div>`;
+    let flagPane = `<div class="rightPane"> <div class="gang"> ${flag}</div> ${del} </div>`;
 
 
         //ListingContainer.appendChild(newDiv);
@@ -40,27 +40,39 @@ function createReview(review){
                             </br>
                             <p>Description: \n${review.ReviewDescription}</p>
                             </div>
-                            ${flagPane}`;        
+                            ${flagPane}`;       
+    
+    //const addresses2 = document.getElementById(14);
+    //console.log("gg" + addresses2.innerHTML + ` ${review.idReview}`);
 }
 
 async function flagReview(reviewID){
+    //console.log(reviewID)
+    let element = document.getElementById(reviewID);
+    let flag = element.lastElementChild
+    const flag2 = flag.firstElementChild;
+    flag2.innerHTML = `<a class="search-btn flag" id="flag" onclick="unFlagReview(${reviewID})" >Unflag</a>`
+    console.log("flag is" + flag2.innerHTML);
+    //element.innerHTML = "";
     return fetch(`/flag_review/${reviewID}`)
-        .then(getReviews());
 }
 
 async function unFlagReview(reviewID){
-    console.log(reviewID)
     let element = document.getElementById(reviewID);
-    console.log("hi" + element);
-    fetch(`/unflag_review/${reviewID}`)
-        .then(getReviews());
-    
+    let flag = element.lastElementChild
+    const flag2 = flag.firstElementChild;
+    flag2.innerHTML = `<a class="search-btn flag" id="flag" onclick="flagReview(${reviewID})" >Flag</a>`
+    console.log(reviewID)
+    //element.innerHTML = "";
+    fetch(`/unflag_review/${reviewID}`);    
     
 }
 
 function deleteReview(reviewID){
+    console.log(reviewID)
+    let element = document.getElementById(reviewID);
+    element.innerHTML = `Review Successfully Deleted.`;
     fetch(`/delete_review/${reviewID}`);
-    getReviews();
 }
 
 function getAllReviews(){

@@ -334,4 +334,10 @@ img {
 .flag {
   background-color: yellow;
 }
+
+.gang {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=areaReviews.css.map */
