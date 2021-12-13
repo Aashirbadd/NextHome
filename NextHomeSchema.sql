@@ -108,7 +108,7 @@ CREATE TABLE `AdminUser` (
   `AdminCode` int NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(45) NOT NULL,
   `LastName` varchar(45) NOT NULL,
-  `AdminUsercol` varchar(45) NOT NULL,
+  `AdminEmail` varchar(100) NOT NULL,
   `Password` varchar(45) NOT NULL,
   PRIMARY KEY (`AdminCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
