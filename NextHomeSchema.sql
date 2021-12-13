@@ -1,12 +1,8 @@
 DROP DATABASE nextHome;
-
 CREATE DATABASE nextHome;
-
 USE nextHome;
 ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY '';
 flush privileges;
-
-
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
   `MLSCode` int DEFAULT NULL,
@@ -24,7 +20,6 @@ CREATE TABLE `Listings` (
   PRIMARY KEY (`idListings`),
   UNIQUE KEY `idListings_UNIQUE` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `ListingPhoto` (
   `ListingID` int NOT NULL,
   `FileName` varchar(255) NOT NULL,
@@ -34,14 +29,12 @@ CREATE TABLE `ListingPhoto` (
   KEY `ListingID_idx` (`ListingID`),
   CONSTRAINT `ListingID` FOREIGN KEY (`ListingID`) REFERENCES `Listings` (`idListings`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Brokerage` (
   `Website` varchar(255) NOT NULL,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Realtors` (
   `Website` varchar(255) NOT NULL,
   `PhoneNumber` varchar(45) NOT NULL,
@@ -49,12 +42,10 @@ CREATE TABLE `Realtors` (
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `AreaSubdivision` (
   `Name` varchar(10) NOT NULL,
   PRIMARY KEY (`Name`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `User` (
   `FName` varchar(45) NOT NULL,
   `LName` varchar(45) NOT NULL,
@@ -62,15 +53,18 @@ CREATE TABLE `User` (
   `Password` varchar(45) NOT NULL,
   PRIMARY KEY (`Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Search` (
   `Email` varchar(45) NOT NULL,
   `AreaCode` varchar(10) NOT NULL,
   `SquareFootage` int NOT NULL,
   `PriceRange` varchar(45) NOT NULL,
-  PRIMARY KEY (`AreaCode`, `Email`, `SquareFootage`, `PriceRange`)
+  PRIMARY KEY (
+    `AreaCode`,
+    `Email`,
+    `SquareFootage`,
+    `PriceRange`
+  )
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Retrieves` (
   `Email` varchar(45) NOT NULL,
   `AreaCode` varchar(45) NOT NULL,
@@ -85,7 +79,6 @@ CREATE TABLE `Retrieves` (
     `ListingID`
   )
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
   `Email` varchar(45) NOT NULL,
@@ -97,13 +90,11 @@ CREATE TABLE `Review` (
   `ReviewRating` int NOT NULL,
   PRIMARY KEY (`idReview`, `Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Flag` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `Email` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`, `Email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `AdminUser` (
   `AdminCode` int NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(45) NOT NULL,
@@ -112,23 +103,19 @@ CREATE TABLE `AdminUser` (
   `Password` varchar(45) NOT NULL,
   PRIMARY KEY (`AdminCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 CREATE TABLE `Moderates` (
   `AdminCode` int NOT NULL,
   `ReviewID` int NOT NULL,
   PRIMARY KEY (`AdminCode`, `ReviewID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
 ALTER TABLE Listings
 ADD CONSTRAINT `BrokerageWebsite` FOREIGN KEY (`BrokerageWebsite`) REFERENCES `Brokerage` (`Website`),
   ADD CONSTRAINT `AreaName` FOREIGN KEY (`AreaName`) REFERENCES `AreaSubdivision` (`Name`),
   ADD CONSTRAINT `RealtorWebsite` FOREIGN KEY (`RealtorWebsite`) REFERENCES `Realtors` (`Website`),
   ADD CONSTRAINT `PostOwner` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`);
-  
 ALTER TABLE Search
 ADD CONSTRAINT `Email` FOREIGN KEY (`Email`) REFERENCES `User` (`Email`),
   ADD CONSTRAINT `AreaCode` FOREIGN KEY (`AreaCode`) REFERENCES `AreaSubdivision` (`Name`);
-  
 /*
  ALTER TABLE Retrieves
  ADD CONSTRAINT `UserID` 
@@ -152,14 +139,33 @@ ADD CONSTRAINT `ReviewUserReference` FOREIGN KEY (`Email`) REFERENCES `User` (`E
 ALTER TABLE Moderates
 ADD CONSTRAINT `AdminCode` FOREIGN KEY (`AdminCode`) REFERENCES `AdminUser` (`AdminCode`),
   ADD CONSTRAINT `ReviewIDReference1` FOREIGN KEY (`ReviewID`) REFERENCES `Review` (`idReview`);
-
-INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NE');
-INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NW');
-INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
-INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
-
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`) VALUES ("realtor.ca", "5879690696", "Aayush Dahal Dahal Dahal");
-INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Realtor");
-
-INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
-INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`)
+VALUES ('NE');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`)
+VALUES ('NW');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`)
+VALUES ('SW');
+INSERT INTO `nextHome`.`AreaSubdivision` (`Name`)
+VALUES ('SE');
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`)
+VALUES (
+    "realtor.ca",
+    "5879690696",
+    "Aayush Dahal Dahal Dahal"
+  );
+INSERT INTO `nextHome`.`Brokerage` (Website, `Name`)
+VALUES ("realtor.ca", "Realtor");
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`)
+VALUES (
+    "Aashirbad",
+    "TheUltimateEagle",
+    "aashirbadd@gmail.com",
+    "cookie123"
+  );
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`)
+VALUES (
+    "Mikail",
+    "Munir",
+    "mikailmunir01@gmail.com",
+    "bordgilla"
+  );
