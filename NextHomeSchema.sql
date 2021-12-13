@@ -163,3 +163,5 @@ INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Real
 
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
+INSERT INTO `AdminUser` (AdminCode, FirstName, LastName, AdminEmail, `Password`) VALUES (1, "Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
+INSERT INTO `AdminUser` (AdminCode, FirstName, LastName, AdminEmail, `Password`) VALUES (2, "Aashirbad", "Dhital", "aashirbadd@gmail.com", "cookie123");
