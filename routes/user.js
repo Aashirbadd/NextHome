@@ -59,7 +59,6 @@ router.get("/user_login", (req,res) => {
         } else{
             console.log("Invalid email or password");
             res.redirect("/html/login.html");
-            res.end();
             return;
         }
         res.redirect("/html/index.html");
@@ -69,7 +68,7 @@ router.get("/user_login", (req,res) => {
 router.get("/admin_login", (req,res) => {
     const email = req.query.email;
     const password = req.query.password;
-    const queryString = "SELECT AdminEmail, Password FROM AdminUser WHERE (AdminEmail = ? AND Password = ?);";
+    const queryString = "SELECT AdminEmail, Password FROM AdminUser WHERE AdminEmail = ? AND Password = ?;";
 
     getConnection().query(queryString, [email, password], (err, results, fields) => {
         if(err){
@@ -81,7 +80,6 @@ router.get("/admin_login", (req,res) => {
         } else{
             console.log("Invalid email or password");
             res.redirect("/html/login.html");
-            res.end();
             return;
         }
         res.redirect("/html/moderateReview.html");
