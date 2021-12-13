@@ -1,6 +1,7 @@
 // Contains all user related routes
 const mysql = require("mysql");
 const express = require("express");
+const e = require("express");
 const router = express.Router();    // Creates a brand new router
 
 function getConnection(){
@@ -12,7 +13,7 @@ function getConnection(){
 }
 
 router.post("/create_review", (req, res) => {
-    const email = "aashirbadd@gmail.com";
+    const email = req.body.email;
     const password = req.body.password;
     const reviewDescription = req.body.reviewDescription;
     const reviewDate = new Date();
@@ -41,6 +42,16 @@ router.post("/create_review", (req, res) => {
         } else{
             console.log("Wrong account details!!!")
             res.redirect("/html/createReview.html");
+        }
+    })
+})
+
+router.get("/get_flagged_review", (req, res) => {
+    getConnection().query("SELECT * FROM Review WHERE Flag = 1", (err, results, fields) =>{
+        if(err) {
+            console.log("Could not retrieve flagged reviews: " + err);
+        } else{
+            res.send(results);
         }
     })
 })
