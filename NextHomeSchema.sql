@@ -39,7 +39,7 @@ CREATE TABLE `ListingPhoto` (
 CREATE TABLE `Brokerage` (
   `Website` varchar(255) NOT NULL,
   `BrokerageName` varchar(45) NOT NULL,
-  `BrokeragerPic` varchar(500) DEFAULT "../img/cir.png",
+  `BrokeragePic` varchar(500) DEFAULT "../img/cir.png",
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -161,12 +161,12 @@ INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
 
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca", "780-886-4386", "Kaitlin Metke", "https://cdn.realtor.ca/individual/TS637553976600000000/highres/1384394.jpg");
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca", "604-773-8586", "Thuy Dinh", "https://cdn.realtor.ca/individual/TS637490202000000000/highres/1175626.jpg");
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("cirrealty.ca", "403-818-1546", "Aimee Manser", "https://sso.cirrealty.ca/realtorscans/CMANSEAI.jpg");
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("https://bamberrealty.c21.ca/", "(403) 863-7235", "Sophia Klassen", "https://i5.moxi.onl/img-pr/a/d49c6ed3-1339-4dfc-8dae-2bfdf57b5000/0_2_full.jpg");
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("https://bamberrealty.c21.ca/", "(403) 919-9733", "Suman Brar", "https://i5.moxi.onl/img-pr/a/a243df43-7d92-4033-8c73-3d0bfcfc944d/0_1_full.jpg");
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("https://www.remax.ca/ab/calgary-real-estate?pageNumber=1", "(403) 923-7768", "Jennifer Miller", "https://remax-aphotos-papi.imgix.net/Person/100110604/MainPhoto_cropped/MainPhoto_cropped.jpg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=75&w=2160");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca/agent/2131632/kaitlin-metke-13120-st-albert-trail-nw-edmonton-alberta-t5l4p6", "780-886-4386", "Kaitlin Metke", "https://cdn.realtor.ca/individual/TS637553976600000000/highres/1384394.jpg");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca/agent/1725150/thuy-dinh-2629-kingsway-vancouver-british-columbia-v5r5h4", "604-773-8586", "Thuy Dinh", "https://cdn.realtor.ca/individual/TS637490202000000000/highres/1175626.jpg");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("cirrealty.ca/aimee_manser", "403-818-1546", "Aimee Manser", "https://sso.cirrealty.ca/realtorscans/CMANSEAI.jpg");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("sophia-klassen.c21.ca/", "(403) 863-7235", "Sophia Klassen", "https://i5.moxi.onl/img-pr/a/d49c6ed3-1339-4dfc-8dae-2bfdf57b5000/0_2_full.jpg");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("c21.ca/directory/agents/suman-brar", "(403) 919-9733", "Suman Brar", "https://i5.moxi.onl/img-pr/a/a243df43-7d92-4033-8c73-3d0bfcfc944d/0_1_full.jpg");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("remax.ca/ab/jennifer-miller-117639-ag", "(403) 923-7768", "Jennifer Miller", "https://remax-aphotos-papi.imgix.net/Person/100110604/MainPhoto_cropped/MainPhoto_cropped.jpg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=75&w=2160");
 
 
 
