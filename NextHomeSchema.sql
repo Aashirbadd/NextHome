@@ -232,7 +232,7 @@ VALUES (
   );
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`)
 VALUES (
-    "https://bamberrealty.c21.ca/",
+    "bamberrealty.c21.ca/",
     "Century 21 Bamber",
     "https://easterseals.ab.ca/app/uploads/2019/05/century-logo.jpg"
   );
@@ -244,7 +244,7 @@ VALUES (
   );
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`)
 VALUES (
-    "https://www.remax.ca/ab/calgary-real-estate?pageNumber=1",
+    "remax.ca/ab/calgary-real-estate?pageNumber=1",
     "Remax",
     "https://media-exp1.licdn.com/dms/image/C4E1BAQEBN8PiPBxiYw/company-background_10000/0/1519838354578?e=2159024400&v=beta&t=IfGiR7P4g6oOu-v21aM4RIkamzKuCurthAvPxbbOyto"
   );
