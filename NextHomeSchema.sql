@@ -156,11 +156,13 @@ ALTER TABLE Moderates
 ADD CONSTRAINT `AdminCode` FOREIGN KEY (`AdminCode`) REFERENCES `AdminUser` (`AdminCode`),
   ADD CONSTRAINT `ReviewIDReference1` FOREIGN KEY (`ReviewID`) REFERENCES `Review` (`idReview`);
 
+/* Dummy Data For AreaSubdivisions*/
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NE');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
 
+/* Dummy Data For Realtors*/
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca", "780-886-4386", "Kaitlin Metke", "https://cdn.realtor.ca/individual/TS637553976600000000/highres/1384394.jpg");
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("realtor.ca", "604-773-8586", "Thuy Dinh", "https://cdn.realtor.ca/individual/TS637490202000000000/highres/1175626.jpg");
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("cirrealty.ca", "403-818-1546", "Aimee Manser", "https://sso.cirrealty.ca/realtorscans/CMANSEAI.jpg");
@@ -168,17 +170,17 @@ INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `Realtor
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("https://bamberrealty.c21.ca/", "(403) 919-9733", "Suman Brar", "https://i5.moxi.onl/img-pr/a/a243df43-7d92-4033-8c73-3d0bfcfc944d/0_1_full.jpg");
 INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`, `RealtorPic`) VALUES ("https://www.remax.ca/ab/calgary-real-estate?pageNumber=1", "(403) 923-7768", "Jennifer Miller", "https://remax-aphotos-papi.imgix.net/Person/100110604/MainPhoto_cropped/MainPhoto_cropped.jpg?fit=max&auto=format,compress&fm=pjpg&cs=srgb&q=75&w=2160");
 
-
-
+/* Dummy Data For Brokerages*/
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`) VALUES ("cirrealty.ca/", "CIR Realty", "https://www.cirrealty.ca/Themes/CIR-Blue/Content/images/CIR_Logo_Blue-Square_spot-p-800.jpeg");
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`) VALUES ("https://bamberrealty.c21.ca/", "Century 21 Bamber", "https://easterseals.ab.ca/app/uploads/2019/05/century-logo.jpg");
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`) VALUES ("realtor.ca", "Realtor", "https://www.realtor.ca/images/logo.svg");
 INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`, `BrokeragePic`) VALUES ("https://www.remax.ca/ab/calgary-real-estate?pageNumber=1", "Remax", "https://media-exp1.licdn.com/dms/image/C4E1BAQEBN8PiPBxiYw/company-background_10000/0/1519838354578?e=2159024400&v=beta&t=IfGiR7P4g6oOu-v21aM4RIkamzKuCurthAvPxbbOyto");
 
 
-
-
+/* Dummy Data For Brokerages*/
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
-INSERT INTO `AdminUser` (AdminCode, FirstName, LastName, AdminEmail, `Password`) VALUES (1, "Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
-INSERT INTO `AdminUser` (AdminCode, FirstName, LastName, AdminEmail, `Password`) VALUES (2, "Aashirbad", "Dhital", "aashirbadd@gmail.com", "cookie123");
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Test", "User", "testuser@nexthome.com", "next!");
+
+/* Dummy Data For Admins*/
+INSERT INTO `AdminUser` (AdminCode, FirstName, LastName, AdminEmail, `Password`) VALUES (1, "Admin", "User", "admin@nexthome.com", "root");
