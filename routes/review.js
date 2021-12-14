@@ -97,7 +97,7 @@ router.get("/unflag_review/:id", (req,res) => {
 
 
 router.get("/get_reviews", (req, res) => {
-    const queryString = "SELECT * FROM Review;";
+    const queryString = "SELECT * FROM Review ORDER BY idReview DESC;";
     const flag = 0;
 
     const queryInserts = [flag];
