@@ -137,5 +137,15 @@ function getReviews(){
     
 }
 
-
-getAllReviews();
+const currentURL = window.location.href;
+if(currentURL.includes("moderateReview")){
+    getFlaggedReviews();
+}
+else if(currentURL.includes("listing")){
+    const urlString = window.location.href;
+    const url = new URL(urlString);
+    const area = url.searchParams.get("area");
+    console.log("BLANG" + area);
+    getSpecificReviews(area);
+}
+else getAllReviews();

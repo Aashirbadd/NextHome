@@ -37,7 +37,7 @@ function leftPane(listing){
         <h1>${listing.Address}</h1>
         <p>MLS® Number: ${listing.MLSCode}</p>
         <br>
-        <p>Basement: ${listing.BasementType} | ${listing.SquareFootage} SqFt |  Area Code: ${listing.AreaName}</p>
+        <p id="l-details">Basement: ${listing.BasementType} | ${listing.SquareFootage} SqFt |  Area Code: ${listing.AreaName}</p>
         <br>
         <p>Description:</p>
         <p>${listing.Description}</p>`

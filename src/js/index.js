@@ -5,7 +5,7 @@ function createListing(listing, MLS){
         const newDiv = document.createElement("a");       //Create new div
         newDiv.classList.add('listing');                 // Add class to the list.
         newDiv.id = MLS;
-        newDiv.href = `listing.html?id=${MLS}`
+        newDiv.href = `listing.html?id=${MLS}&area=${listing.AreaName}`
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(MLS);
@@ -15,7 +15,7 @@ function createListing(listing, MLS){
                                 </object>
                             </p>
                             <div class="listing-disc">
-                            <H2>${listing.Address}</H2>
+                            <H2>${listing.Address} ${listing.AreaName}</H2>
                             <p>Price: ${listing.Price}</p>
                             <p>Square Footage: ${listing.SquareFootage}</p>
                             <p>Bedrooms: ${listing.Bedrooms}</p>

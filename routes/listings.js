@@ -46,7 +46,7 @@ router2.get("/search_listings/", (req, res) => {
     const maxPrice = req.query.max_price;
     const minSqft = req.query.min_sqft;
     const maxSqft = req.query.max_sqft;
-    const queryString = "SELECT * FROM Listings ORDER BY idListings DESC WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?);";
+    const queryString = "SELECT * FROM Listings WHERE (AreaName = ?) AND (Price >= ? AND Price <= ?) AND (SquareFootage >= ? AND SquareFootage <=?) ORDER BY idListings DESC;";
     const queryInserts = [area, minPrice, maxPrice, minSqft, maxSqft];
 
     getConnection().query(queryString, queryInserts, (err, rows, fields) => {

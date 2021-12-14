@@ -117,7 +117,7 @@ router.get("/get_reviews", (req, res) => {
 router.get("/get_specificReview", (req, res) => {
     const area = req.query.area;
     console.log("area is" + area);
-    const queryString = "SELECT * FROM Review WHERE (AreaCode = ?);";
+    const queryString = "SELECT * FROM Review WHERE (AreaCode = ?) ORDER BY idReview DESC;";
     //const queryString = "SELECT * FROM Review;";
     const flag = 0;
 
