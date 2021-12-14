@@ -5,7 +5,7 @@ ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY '';
 flush privileges;
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
-  `MLSCode` int DEFAULT NULL,
+  `MLSCode` varchar(45) DEFAULT NULL,
   `BasementType` varchar(45) NOT NULL,
   `Description` LONGTEXT NOT NULL,
   `Price` int NOT NULL,
@@ -266,11 +266,14 @@ VALUES (
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`)
 VALUES ("Test", "User", "testuser@nexthome.com", "next!");
 /* Dummy Data For Admins*/
-INSERT INTO `AdminUser` (
-    AdminCode,
-    FirstName,
-    LastName,
-    AdminEmail,
-    `Password`
-  )
+INSERT INTO `AdminUser` (AdminCode,FirstName,LastName,AdminEmail,`Password`)
 VALUES (1, "Admin", "User", "admin@nexthome.com", "root");
+
+INSERT INTO `nextHome`.`Listings` (MLSCode, BasementType, Description, Price, SquareFootage, Bedrooms, Bathrooms,
+Address, AreaName, Email, BrokerageWebsite, RealtorWebsite, ImageURL)
+VALUES("A1165628", "Finished", "PRIME location on this home in the family friendly community of Auburn Bay! Literally 2 min walk to the lake that you can enjoy year round and a short drive to all of the areas amenities that include the YMCA, VIP theatre, restaurants, shops, pubs, shopping, schools, transit and the hospital! This 3 bedroom up/1 bedroom down home has an open floor plan, functional space and a fully finished basement. As you enter you have a nice flow to the house, large living room area that leads through to the dining area, a kitchen that features granite countertops, stainless steel appliances, beautiful tiled backsplash, plenty of counter and cabinet space and a corner pantry. The main floor also has a main floor den area, half bath and mudroom that leads to the garage! Upstairs has a great bonus room, a primary bedroom with a walk in closet and a full ensuite bathroom with dual sinks. Two more additional bedrooms and another full bathroom for the kids and upper level laundry for your convenience! The basement level is finished with another bedroom, full bathroom and a fabulous rec room area! Outside you will love the large deck, yard space and the underground sprinkler system. So much to love about this house in one of Calgary's premier lake communities! Don't miss this one :)",
+625000, 2130, 4, 4, "106 Auburn Shores Crescent", "SE", "aashirbadd@gmail.com", "remax.ca/ab/calgary-real-estate?pageNumber=1",
+"c21.ca/directory/agents/suman-brar",
+"../img/106AubernShores.jpeg");
+
+
