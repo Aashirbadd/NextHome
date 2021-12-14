@@ -156,6 +156,9 @@ img {
   width: 100%;
   object-fit: cover;
 }
+object {
+  object-fit: cover;
+}
 
 .listing:hover {
   box-shadow: darkblue;
@@ -195,6 +198,7 @@ img {
   margin: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 #disc-pane {
@@ -307,6 +311,7 @@ img {
     display: flex;
     justify-content: space-evenly;
     height: 330px;
+    object-fit: cover;
   }
 
   #disc-pane {
