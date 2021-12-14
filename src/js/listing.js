@@ -41,6 +41,29 @@ function leftPane(listing){
         <br>
         <p>Description:</p>
         <p>${listing.Description}</p>`
+    
+    const RealtorPane = document.getElementById("realtor-pane")
+    RealtorPane.innerHTML =`
+                            <div class="realtor-text">
+                            <h2>Realtor:</h2>
+                            <p>${listing.RealtorName}</p>
+                            </br>
+                            <p>📞 ${listing.PhoneNumber}</p>
+                            <a class="search-btn realtor-btn" href="https://www.${listing.RealtorWebsite}">Go to site</a>
+                            </div>
+                            <img class = "realtor-img" src="../img/realtor.png" alt="">`;
+    
+    const BrokeragePane = document.getElementById("brokerage-pane")
+    BrokeragePane.innerHTML =`
+                            <div class="realtor-text">
+                                <h2>Brokerage:</h2>
+                                <br>
+                                <p>${listing.BrokerageName}</p>
+                                <a class="search-btn listing-btn" href="https://www.${listing.BrokerageWebsite}">Go to site</a>
+                            </div>
+                            <img class = "realtor-img" src="../img/cir.png" alt="">`;
+    
+                            
 
 }
 

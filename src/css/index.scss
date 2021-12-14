@@ -181,6 +181,7 @@ object {
   background-size: cover;
   width: auto;
   height: 360px;
+  object-fit: cover;
 }
 .listing-img {
   width: 100%;
@@ -193,4 +194,12 @@ object {
 
 .listing-disc {
   padding: 20px;
+}
+
+@media (max-width: 1630px) {
+  .listing-container {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

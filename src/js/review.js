@@ -106,16 +106,34 @@ function getSpecificReviews(areaCode){
                 })
 }
 
+function getFlaggedReviews(){
+    console.log("Flags");
+    reviewContainer.innerHTML=``;
+    const g = fetch("/get_flagged_review")
+                .then(response => response.json())
+                .then(data=>{
+                    console.log("from shizzers");
+                    console.log(data)
+                    data.forEach(function(i){
+                        console.log(i);
+                        createReview(i);
+                        //createListing(i, i.idListings);
+                    })
+                    return data;
+                })
+}
+
 function getReviews(){
     const area = document.getElementById('area').value;
     console.log(area);
     reviewContainer.innerHTML=``;
-    if (area != "ALL"){
+    if (area != "ALL" && area !="Flagged"){
         getSpecificReviews(area);
     }
-    else{
+    else if (area != "Flagged"){
         getAllReviews();
     }
+    else getFlaggedReviews();
     
 }
 

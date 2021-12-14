@@ -38,7 +38,7 @@ CREATE TABLE `ListingPhoto` (
 
 CREATE TABLE `Brokerage` (
   `Website` varchar(255) NOT NULL,
-  `Name` varchar(45) NOT NULL,
+  `BrokerageName` varchar(45) NOT NULL,
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -46,7 +46,7 @@ CREATE TABLE `Brokerage` (
 CREATE TABLE `Realtors` (
   `Website` varchar(255) NOT NULL,
   `PhoneNumber` varchar(45) NOT NULL,
-  `Name` varchar(45) NOT NULL,
+  `RealtorName` varchar(45) NOT NULL,
   PRIMARY KEY (`Website`),
   UNIQUE KEY `Website_UNIQUE` (`Website`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -159,8 +159,8 @@ INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('NW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SW');
 INSERT INTO `nextHome`.`AreaSubdivision` (`Name`) VALUES ('SE');
 
-INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `Name`) VALUES ("realtor.ca", "5879690696", "Aayush Dahal Dahal Dahal");
-INSERT INTO `nextHome`.`Brokerage` (Website, `Name`) VALUES ("realtor.ca", "Realtor");
+INSERT INTO `nextHome`.`Realtors` (Website, PhoneNumber, `RealtorName`) VALUES ("realtor.ca", "403-955-(3755)", "Jeff Sanchez");
+INSERT INTO `nextHome`.`Brokerage` (Website, `BrokerageName`) VALUES ("cirrealty.ca/", "CIR Realty");
 
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Aashirbad", "TheUltimateEagle", "aashirbadd@gmail.com", "cookie123");
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`) VALUES ("Mikail", "Munir", "mikailmunir01@gmail.com", "bordgilla");
