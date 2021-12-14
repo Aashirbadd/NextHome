@@ -349,16 +349,49 @@ object {
   width: 100%;
 }
 
-.realtor-btn {
+.realtor-btn,
+.listing-btn {
   margin-left: 0;
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 8px;
+  background-color: rgba(0, 255, 34, 0.705);
+  color: white;
+}
+
+.realtor-btn {
   background-color: red;
 }
 
 .listing-btn {
-  margin-left: 0;
-  width: 50%;
   background-color: dodgerblue;
+}
+
+.listing-btn:hover,
+.realtor-btn:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+}
+
+.listing-btn:active,
+.realtor-btn:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .realtor-img {

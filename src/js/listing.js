@@ -3,7 +3,7 @@
 
 //BtnAdd.addEventListener("click", AddNew);  // Pays attention to when this event happens
 
-function AddNew(){
+function AddNew() {
     const newDiv = document.createElement("a");       //Create new div
     const newAddress = document.createElement("h1");
     newAddress.classList.add("addy");
@@ -18,7 +18,7 @@ function AddNew(){
 }
 
 //createListing();
-function leftPane(listing){
+function leftPane(listing) {
     const LC = document.getElementById("image-container");
     LC.innerHTML = `
                 <img class="arrow left" src="../img/left.png" alt="">
@@ -41,60 +41,60 @@ function leftPane(listing){
         <br>
         <p>Description:</p>
         <p>${listing.Description}</p>`
-    
+
     const RealtorPane = document.getElementById("realtor-pane")
-    RealtorPane.innerHTML =`
+    RealtorPane.innerHTML = `
                             <div class="realtor-text">
                             <h2>Realtor:</h2>
                             <p>${listing.RealtorName}</p>
                             </br>
                             <p>📞 ${listing.PhoneNumber}</p>
-                            <a class="search-btn realtor-btn" href="https://www.${listing.RealtorWebsite}">Go to site</a>
+                            <a class="realtor-btn" href="https://www.${listing.RealtorWebsite}">Go to site</a>
                             </div>
-                            <img class = "realtor-img" src="../img/realtor.png" alt="">`;
-    
+                            <img class = "realtor-img" src="${listing.RealtorPic}" alt="">`;
+
     const BrokeragePane = document.getElementById("brokerage-pane")
-    BrokeragePane.innerHTML =`
+    BrokeragePane.innerHTML = `
                             <div class="realtor-text">
                                 <h2>Brokerage:</h2>
                                 <br>
                                 <p>${listing.BrokerageName}</p>
-                                <a class="search-btn listing-btn" href="https://www.${listing.BrokerageWebsite}">Go to site</a>
+                                <a class="listing-btn" href="https://www.${listing.BrokerageWebsite}">Go to site</a>
                             </div>
-                            <img class = "realtor-img" src="../img/cir.png" alt="">`;
-    
-                            
+                            <img class = "realtor-img" src="${listing.BrokeragePic}" alt="">`;
+
+
 
 }
 
-function rightPane(listing){
+function rightPane(listing) {
     const ListingContainer = document.getElementById("pane-1");
     ListingContainer.innerHTML = `
     <h2>Price: $${listing.Price}</h2>
     <p>🛏${listing.Bedrooms} Bedroom | 🛀🏻 ${listing.Bedrooms} Bathroom</p>`
 }
 
-function createListing(listing, MLS){
+function createListing(listing, MLS) {
     //let listings = document.querySelectorAll("#addy");
-        const newDiv = document.createElement("a");       //Create new div
-        newDiv.classList.add('listing');                 // Add class to the list.
-        newDiv.href = "listing.js";
-        console.log("yo" + newDiv.href);
-        newDiv.id = MLS;
+    const newDiv = document.createElement("a");       //Create new div
+    newDiv.classList.add('listing');                 // Add class to the list.
+    newDiv.href = "listing.js";
+    console.log("yo" + newDiv.href);
+    newDiv.id = MLS;
 
 
-        ListingContainer.appendChild(newDiv);
-        //document.body.appendChild(newDiv);                  // Append to html file
+    ListingContainer.appendChild(newDiv);
+    //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(MLS);
     addresses.href = "listing.js";
-    addresses.innerHTML= `  <div class="listing-disc">
+    addresses.innerHTML = `  <div class="listing-disc">
                             <H2>${listing.Address}</H2>
                             <p>Price: ${listing.Price}</p>
                             <p>Square Footage: ${listing.SquareFootage}</p>
                             <p>Bedrooms: ${listing.Bedrooms}</p>
                             <p>Bathrooms: ${listing.Bathrooms}</p>
                             </div>`;
-    
+
 }
 const urlString = window.location.href;
 const url = new URL(urlString);
@@ -103,18 +103,18 @@ console.log("Url" + id);
 
 
 const j = fetch(`/get_listings/${id}`)
-            .then(response => response.json())
-            .then(data=>{
-                console.log("from shizzers");
-                console.log(data[0]);
-                leftPane(data[0]);
-                rightPane(data[0]);
-                return data;
-                //document.querySelector("#address").innerText=data.address
-                //document.querySelector("#price").innerText=data.price
-            })
+    .then(response => response.json())
+    .then(data => {
+        console.log("from shizzers");
+        console.log(data[0]);
+        leftPane(data[0]);
+        rightPane(data[0]);
+        return data;
+        //document.querySelector("#address").innerText=data.address
+        //document.querySelector("#price").innerText=data.price
+    })
 
-Array.from(j).forEach(function(i){
+Array.from(j).forEach(function (i) {
     console.log(i);
-    
+
 })
