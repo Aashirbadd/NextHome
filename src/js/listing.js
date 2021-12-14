@@ -19,7 +19,19 @@ function AddNew(){
 
 //createListing();
 function leftPane(listing){
-    
+    const LC = document.getElementById("image-container");
+    LC.innerHTML = `
+                <img class="arrow left" src="../img/left.png" alt="">
+                
+                <object class="listing-image" data="${listing.ImageURL}" type="image/png">
+                <img class="listing-image jj" src="../img/House.jpeg">
+                </object>
+                
+                <img src="../img/house2.jpeg" alt="" class="listing-image">
+                <img src="../img/house3.jpeg" alt="" class="listing-image">
+                <img class="arrow right" src="../img/right.png" alt="">
+                `;
+
     const ListingContainer = document.getElementById("left-pane");
     ListingContainer.innerHTML = `
         <h1>${listing.Address}</h1>

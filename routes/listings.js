@@ -99,6 +99,8 @@ router2.post("/post_listing", (req,res) => {
     const realtor = req.body.create_realtor_website;
     const user = req.body.create_user_email;
     const password = req.body.password;
+    const imageUrl = req.body.imageURL;
+
     let queryString;
     let queryString2 = "SELECT Email FROM User WHERE Email = ? AND Password = ?;"
     let queryInserts;
@@ -113,8 +115,8 @@ router2.post("/post_listing", (req,res) => {
         queryString = "INSERT INTO Listings (`MLSCode`, `BasementType`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
         queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, user];
     } else{
-        queryString = "INSERT INTO Listings (`MLSCode`, `BasementType`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite, Email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
-        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, realtor, user];
+        queryString = "INSERT INTO Listings (`MLSCode`, `BasementType`, `Description`, Price, SquareFootage, Bedrooms, Bathrooms, Address, AreaName, BrokerageWebsite, RealtorWebsite, Email, ImageURL) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        queryInserts = [mlsCode, basementType, description, price, sqft, bedrooms, bathrooms, address, areaName, brokerage, realtor, user, imageUrl];
     }
     
     getConnection().query(queryString2, [user, password], (err, results, fields)=>{

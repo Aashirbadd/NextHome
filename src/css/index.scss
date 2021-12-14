@@ -174,9 +174,13 @@ select {
   transform: scale(1);
 }
 
-img {
+img,
+object {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  background-size: cover;
+  width: auto;
+  height: 360px;
 }
 .listing-img {
   width: 100%;

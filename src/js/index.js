@@ -9,7 +9,11 @@ function createListing(listing, MLS){
         ListingContainer.appendChild(newDiv);
         //document.body.appendChild(newDiv);                  // Append to html file
     let addresses = document.getElementById(MLS);
-    addresses.innerHTML= `  <img class="listing-img" src="${listing.ImageURL}" alt="">
+    addresses.innerHTML= `  <p>
+                                <object class="listing-img" data="${listing.ImageURL}" type="image/png">
+                                <img class="listing-img" src="../img/House.jpeg">
+                                </object>
+                            </p>
                             <div class="listing-disc">
                             <H2>${listing.Address}</H2>
                             <p>Price: ${listing.Price}</p>
@@ -19,6 +23,7 @@ function createListing(listing, MLS){
                             </div>`;
     
 }
+//<img class="listing-img" src="${listing.ImageURL}" alt="">
 
 function searchAllListings(){
     const j = fetch("/get_listings/")
