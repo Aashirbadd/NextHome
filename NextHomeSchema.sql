@@ -86,7 +86,7 @@ CREATE TABLE `Review` (
   `idReview` int NOT NULL AUTO_INCREMENT,
   `Email` varchar(45) NOT NULL,
   `ReviewDescription` LONGTEXT NOT NULL,
-  `ReviewDate` datetime DEFAULT NULL,
+  `ReviewDate` varchar(45) DEFAULT NULL,
   `Flag` tinyint DEFAULT '0',
   `AreaCode` varchar(45) DEFAULT NULL,
   `ReviewTitle` varchar(45) NOT NULL,
@@ -256,6 +256,15 @@ VALUES (
     "aashirbadd@gmail.com",
     "cookie123"
   );
+  
+INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`)
+VALUES (
+    "Jeff",
+    "Smith",
+    "jeffsmith@gmail.com",
+    "jeffrey"
+  );
+
 INSERT INTO `nextHome`.`User` (FName, LName, Email, `Password`)
 VALUES (
     "Mikail",
@@ -651,3 +660,75 @@ VALUES(
 "sophia-klassen.c21.ca/",
 "/img/swHouse6.jpeg"
 );
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Southeast Calgary is a vast district of residential neighbourhoods and peaceful parkland stretching along the Bow River, including Fish Creek Provincial Park, popular for its trails and birdlife like great blue herons. In the north, the Calgary Zoo is home to giant pandas and grizzly bears. The indoor Calgary Farmers’ Market sells produce, meat, and hot snacks, while fashion and homeware shops fill Southcentre Mall.",
+'Dec 14, 2021, 6:20PM', 0, "SE", 
+"My Favorite Part of the City", 5);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Southeast Calgary is known for its wide open green spaces, spectacular mountain views and beautiful river valley. It offers a perfect blend of country and city living and features more Calgary lake communities than any other quadrant in the city.",
+'Dec 14, 2021, 6:24PM', 0, "SE", 
+"Awesome Place!", 4);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Culture. Food. Nature. Fun. All things that Calgary is lucky to have no shortage of and all things that are calling your name to Calgary's South East Quadrant. Trendy neighbourhoods, the city's beer capital, authentic eats, lush parks, family-friendly getaways and the home of the Calgary Stampede, what more could you ask for in a day of exploration around one of the city's most exciting quarters?",
+'Dec 14, 2021, 6:30PM', 0, "SE", 
+"Just Love it here!!", 5);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Greenspaces and natural landscapes make up a lot of Calgary (over 8000 hectares) and many of these urban getaways are waiting for you in the South East. Feel connected to nature with a hike, bike or beach day in Fish Creek Provincial Park. Try your hand at fly fishing in the world-renowned Bow River, a fly fisher’s paradise. Out Fly Fishing Outfitters can set you up with equipment or take you out on a guided trip to show you the ropes. Discover a new species and explore the Inglewood Bird Sanctuary, free of charge – just remember to be mindful of the environment when taking in this hidden gem. And the best part? You can use Calgary's seemingly never-ending bike paths to access them all. ",
+'Dec 14, 2021, 6:37PM', 0, "SE", 
+"Biking and Birds and Fish? Oh My!", 4);
+
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Locals know finding a good bite in Calgary isn’t hard. Looking for restaurants and hyperlocal eats you haven’t tried before? Try the South East quadrant. With over 75 restaurants each with their own special flare, International Avenue is the ultimate foodie destination. Hunt down the best our local producers have to offer at the Calgary Farmers’ Market. No matter what you are in the mood for, the culinary flare of the SE has got you covered.",
+ 'Dec 14, 2021, 6:42PM', 0, "SE", 
+"Hyperlocal Food for Thought", 5);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "The Beltline is one of Calgary’s most densely populated communities and home to hundreds of colourful businesses that span the neighbourhoods of West Connaught and East Victoria Park. The area is a hub for art, culture and entertainment and nowhere is this more visible than through the Beltline Urban Mural Projects (BUMP). Since 2017, artists have transformed dozens of public walls into thought-provoking and whimsical murals that celebrate the diversity, talent and vibrant character of the community.Take a neighbourhood tour of these murals by jumping on one of the many bike lanes that zip you throughout the area.The 12th Ave cycle track brings you to popular murals such as the JPG Mural",
+'Dec 14, 2021, 6:44PM', 0, "SW", 
+"Murals, Breweries & Bikes in the Beltline", 4);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Marda Loop has quickly become one of Calgary’s most charming and stylish neighbourhoods. Lined with bakeries, cafes and ice-cream shops, it’s the perfect place to go out to get your fix of sweets and treats.
+
+Visit Pie Cloud, located in the Mercantile Farmers Market, for freshly baked savoury and sweet pies. One street down, Calgary’s premium Korean bakery, WOW Bakery, serves up world-renowned pastries, cakes and breads.
+
+Marda Loop has also become synonymous with ice cream. My Favourite Ice Cream Shoppe scoops 72 flavours of ice cream and has been a place for locals to gather on hot summer days since 1981. Play the piano in the shop for 10 minutes and get a free ice cream. Your other delicious option is Village Ice Cream on Garrison Corner, where they make all their flavours right on location. Two scoops of salted caramel on a fresh waffle cone is worth the trip to Marda Loop alone.
+
+When you’re craving something bakeries and ice cream shops can’t offer, treat yourself to some rest, relaxation and Rosso at Distilled Beauty Bar. This all-in-one bar/social house/spa serves tapas, coffee, wine and cocktails and also offers gluten free, vegan and vegetarian options. Come in with some friends for drinks and snacks or make a day of it by indulging in one of the many beauty treatments.",
+'Dec 14, 2021, 6:46PM', 0, "SW", 
+"Find the Best Sweets & Treats in Marda Loop", 4);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "You might not expect to find Canada’s largest sailing school, a rowing club and canoe rental shop in the heart of Calgary, but that’s exactly what’s happening on warm days at the Glenmore Reservoir. A retreat from its urban surroundings, the reservoir backs onto the Weaselhead Natural Environment Area, a 237 hectare park full of wildlife, hiking and biking trails. The Glenmore Sailing School and Calgary Canoe Club  provide rentals and lessons to get you on the water and enjoying one of the most unique treasures in Calgary.
+
+If water sports aren’t for you, the parks surrounding Glenmore Reservoir are equally as stunning. Backdropped by a view of the Rocky Mountains, North & South Glenmore Park are great places to enjoy a family picnic or barbecue while looking down at the water. Green spaces and tennis courts make it easy to spend an entire day at the park. Stay late to catch one of the best sunset views in the city.",
+'Dec 14, 2021, 6:48PM', 0, "SW", 
+"Enjoy Nature at the Glenmore Reservoir & Park", 5);
+
+INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
+Values("jeffsmith@gmail.com", "Some of Calgary’s best ethnic restaurants have set up shop in the SW creating a quadrant that cooks up diverse food for every taste. Options range from authentic Japanese and Ethiopian to fresh takes on classic Italian.
+
+Abyssinia: Authentic Ethiopian & Eritrean
+Take part in the unique and ancient cuisine of Ethiopia and Eritrea through the shared dining experience of breaking into injera with different vegetable and meat stews. The traditional coffee roasting is a unique aromatic experience that transports you to a different place.
+
+Location: 910 12 Ave SW
+
+Allora Every Day Italian
+Everything served at Allora Every Day Italian is local, handmade, or directly imported from Italy. This restaurant specializes in gluten free pasta that more than passes the test.
+
+Location: 326 Aspen Glen Landing SW Unit 114
+
+OMO Teppan: Japanese Steak House
+Calgary's teppanyaki place for Wagyu beef, sushi and the perfect spot for a night out in celebration. Your personal chef performs a spectacle of fire, food and flare that makes for a truly memorable dining experience.
+
+Location: 522 Macleod Trail S
+
+Shokunin: Contemporary Japanese
+Consistently voted as one of Canada’s top restaurants, Shokunin is a can’t miss experience for any foodie. Local ingredients are combined with traditional Japanese techniques and flavour profiles to create one-of-a-kind masterpieces.",
+'Dec 14, 2021, 6:52PM', 0, "SW", 
+"Eat Diverse Ethnic Cuisine", 5);
