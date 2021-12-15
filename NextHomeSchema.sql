@@ -5,11 +5,7 @@ ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY '';
 flush privileges;
 CREATE TABLE `Listings` (
   `idListings` int NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
   `MLSCode` varchar(50) DEFAULT NULL,
-=======
-  `MLSCode` varchar(45) DEFAULT NULL,
->>>>>>> 01efada0ff69f4a1fe08d666c7909877f2694822
   `BasementType` varchar(45) NOT NULL,
   `Description` LONGTEXT NOT NULL,
   `Price` int NOT NULL,
@@ -287,7 +283,7 @@ INSERT INTO `AdminUser` (
     `Password`
   )
 VALUES (1, "Admin", "User", "admin@nexthome.com", "root");
-<<<<<<< HEAD
+
 
 INSERT INTO `nextHome`.`Listings` (`MLSCode`, `BasementType`, `Description`, `Price`, `SquareFootage`, `Bedrooms`, `Bathrooms`, `Address`, `AreaName`, `Email`, `BrokerageWebsite`, `RealtorWebsite`, `ImageURL`)
 VALUES ('A1166045', 'Full, Unfinished', 'Coral Springs Executive Home!! 
@@ -381,7 +377,7 @@ VALUES("A1165628", "Finished", "PRIME location on this home in the family friend
 625000, 2130, 4, 4, "106 Auburn Shores Crescent", "SE", "aashirbadd@gmail.com", "remax.ca/ab/calgary-real-estate?pageNumber=1",
 "c21.ca/directory/agents/suman-brar",
 "../img/106AubernShores.jpeg");
-=======
+
 INSERT INTO `nextHome`.`Listings` (
     MLSCode,
     BasementType,
@@ -831,4 +827,3 @@ Shokunin: Contemporary Japanese
 Consistently voted as one of Canada’s top restaurants, Shokunin is a can’t miss experience for any foodie. Local ingredients are combined with traditional Japanese techniques and flavour profiles to create one-of-a-kind masterpieces.",
 'Dec 14, 2021, 6:52PM', 0, "SW", 
 "Eat Diverse Ethnic Cuisine", 5);
->>>>>>> 01efada0ff69f4a1fe08d666c7909877f2694822
