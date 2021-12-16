@@ -1,5 +1,6 @@
 # NextHome
-Scrapes all single-family house listings in Calgary from the top 3 real-estate sites.
+SQL + NodeJS Backend, and HTML/CSS/JS Frontend Real Estate Website.
+Working on: Scraping all single-family house listings in Calgary from the top 3 real-estate sites.
 
 **Developers:**
 Aashirbad Dhital (@Aashirbadd),
