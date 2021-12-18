@@ -1059,7 +1059,8 @@ If water sports aren’t for you, the parks surrounding Glenmore Reservoir are e
 "Enjoy Nature at the Glenmore Reservoir & Park", 5);
 
 INSERT INTO `nextHome`.`Review` (Email, ReviewDescription, ReviewDate, Flag, AreaCode, ReviewTitle, ReviewRating)
-Values("jeffsmith@gmail.com", "YCalgary’s local craft scene isn’t a secret but many of Calgary’s original breweries are found in the North East and are ready to explore. For the craft beer lovers, Tool Shed opens its brewery doors to see behind the scenes of Calgary’s first microbrewery. Minhas Micro Brewery offers tours and homemade pizzas. Or you can mix it up with Peter’s Drive-In as they ‘brew’ incredible milkshakes where you choose the unique mix ins for custom flavours.",
+Values("jeffsmith@gmail.com", "Calgary’s local craft scene isn’t a secret but many of Calgary’s original breweries are found in the North East and are ready to explore. For the craft beer lovers, Tool Shed opens its brewery doors to see behind the scenes of Calgary’s first microbrewery. Minhas Micro Brewery offers tours and homemade pizzas. Or you can mix it up with Peter’s Drive-In as they ‘brew’ incredible milkshakes where you choose the unique mix ins for custom flavours.",
+
 'Dec 03, 2021, 5:45PM', 0, "NE", 
 "Brews for all Crews", 5);
 
