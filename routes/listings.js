@@ -121,6 +121,7 @@ router2.post("/post_listing", (req,res) => {
     
     getConnection().query(queryString2, [user, password], (err, results, fields)=>{
         console.log(user);
+        console.log(user, password);
         if(err){
             console.log("Failed to insert new listing: " + err)
             res.sendStatus(500)
